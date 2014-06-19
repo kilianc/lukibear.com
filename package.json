@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "deploy-prod": "aws s3 sync dist s3://codename.co --region us-east-1",
+    "deploy-dev": "aws s3 sync app s3://dev.codename.co --region us-east-1"
+  }
+}
