@@ -14,5 +14,5 @@ readline.createInterface({
   var destRef = refs[2]
   var destHash = refs[3]
 
-  deploy(destRef)
+  // deploy(destRef)
 })
