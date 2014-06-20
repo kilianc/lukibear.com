@@ -4,17 +4,27 @@ var spawn = require('child_process').spawn
   , cyan = require('cli-color').cyan
   , orange = require('cli-color').xterm(217)
   , yellow = require('cli-color').xterm(229)
+  , isTTY = process.stdin.isTTY
+
+if (!isTTY) {
+  pink = function (a) { return a }
+  cyan = function (a) { return a }
+  orange = function (a) { return a }
+  yellow = function (a) { return a }
+}
 
 exports.deploy = function deploy(ref) {
   var endpoint = config.deploy.targets[ref]
 
+  banner()
+
   if (undefined === endpoint) {
-    console.log(cyan(' ▸ Ref %s not mathing any deployment target, exiting'), ref)
+    console.log(cyan(' ▸ Ref %s not matching any deployment target, exiting'), ref)
+    console.log()
     return
   }
 
-  banner()
-  console.log(cyan(' ▸ Deploying `%s` to %s', endpoint.path), endpoint.bucket)
+  console.log(cyan(' ▸ Deploying `%s` to %s'), endpoint.path, endpoint.bucket)
   console.log()
 
   var args = [
