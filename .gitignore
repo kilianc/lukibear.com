@@ -1,0 +1,7 @@
+.sass-cache/
+.watch
+app/bower
+app/css/compiled/*
+app/scripts/providers/config.js
+dist/
+.tmp/

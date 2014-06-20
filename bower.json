@@ -1,0 +1,19 @@
+{
+  "name": "codename.co",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kilianc/codename.co",
+  "authors": [
+    "Kilian Ciuffolo <kilian.ciuffolo@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "html5shiv": "~3.7.2",
+    "json3": "~3.3.1",
+    "es5-shim": "~3.4.0",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.1.1",
+    "font-awesome": "~4.1.0",
+    "animate.css": "~3.1.1"
+  }
+}
