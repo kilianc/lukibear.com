@@ -6,41 +6,90 @@ node_js:
   - 0.10.29
 
 before_install:
-  - sudo npm install -g grunt-cli
+  - export HIPCHAT_MESSAGE_PREFIX="<a href=\"$BUILD_URL\">#$BUILD_NUMBER</a> - <a href=\"$GITHUB_URL/tree/$BRANCH\">$BRANCH</a> -"
+
+  # notify start
+  - echo $HIPCHAT_MESSAGE_PREFIX
+  - export HIPCHAT_MESSAGE="$HIPCHAT_MESSAGE_PREFIX deploy started, configuring environment"
+  - curl -sX POST --data "room_id=$HIPCHAT_ROOM&from=$HIPCHAT_FROM&message=$HIPCHAT_MESSAGE&color=$HIPCHAT_COLOR" "$HIPCHAT_ENDPOINT?auth_token=$HIPCHAT_TOKEN"
+
+  #npm
+  - npm install -g grunt-cli
+  - npm install -g bower
+
+  # various
   - sudo pip install awscli
   - sudo gem install sass
 
-# install:
+install:
+  - export HIPCHAT_MESSAGE_PREFIX="<a href=\"$BUILD_URL\">#$BUILD_NUMBER</a> - <a href=\"$GITHUB_URL/tree/$BRANCH\">$BRANCH</a> -"
+
+  # notify npm install
+  - export HIPCHAT_MESSAGE="$HIPCHAT_MESSAGE_PREFIX running <b>npm install</b>"
+  - curl -sX POST --data "room_id=$HIPCHAT_ROOM&from=$HIPCHAT_FROM&message=$HIPCHAT_MESSAGE&color=$HIPCHAT_COLOR" "$HIPCHAT_ENDPOINT?auth_token=$HIPCHAT_TOKEN"
+
+  - npm install
+
+  # notify bower install
+  - export HIPCHAT_MESSAGE="$HIPCHAT_MESSAGE_PREFIX running <b>bower install</b>"
+  - curl -sX POST --data "room_id=$HIPCHAT_ROOM&from=$HIPCHAT_FROM&message=$HIPCHAT_MESSAGE&color=$HIPCHAT_COLOR" "$HIPCHAT_ENDPOINT?auth_token=$HIPCHAT_TOKEN"
+
+  - bower install
 
 script:
   - export NODE_ENV=$BRANCH
+  - export HIPCHAT_MESSAGE_PREFIX="<a href=\"$BUILD_URL\">#$BUILD_NUMBER</a> - <a href=\"$GITHUB_URL/tree/$BRANCH\">$BRANCH</a> -"
 
   # develop
   - export DEPLOY_S3_BUCKET_develop=s3://dev.codename.co
   - export DEPLOY_S3_REGION_develop=us-west-2
   - export DEPLOY_S3_PATH_develop=app
+  - export DEPLOY_S3_URL_develop=http://dev.codename.co
 
   # staging
   - export DEPLOY_S3_BUCKET_staging=s3://stag.codename.co
   - export DEPLOY_S3_REGION_staging=us-east-1
   - export DEPLOY_S3_PATH_staging=dist
+  - export DEPLOY_S3_URL_staging=http://stag.codename.co
 
   # production
   - export DEPLOY_S3_BUCKET_master=s3://codename.co
   - export DEPLOY_S3_REGION_master=us-east-1
   - export DEPLOY_S3_PATH_master=dist
+  - export DEPLOY_S3_URL_master=http://codename.co
 
   # current branch
   - export DEPLOY_S3_BUCKET=$(eval "echo \$DEPLOY_S3_BUCKET_$BRANCH")
   - export DEPLOY_S3_REGION=$(eval "echo \$DEPLOY_S3_REGION_$BRANCH")
   - export DEPLOY_S3_PATH=$(eval "echo \$DEPLOY_S3_PATH_$BRANCH")
+  - export DEPLOY_S3_URL=$(eval "echo \$DEPLOY_S3_URL_$BRANCH")
 
-  - grunt build --no-colors
+  # notify grunt
+  - export HIPCHAT_MESSAGE="$HIPCHAT_MESSAGE_PREFIX running <b>grunt build</b>"
+  - curl -sX POST --data "room_id=$HIPCHAT_ROOM&from=$HIPCHAT_FROM&message=$HIPCHAT_MESSAGE&color=$HIPCHAT_COLOR" "$HIPCHAT_ENDPOINT?auth_token=$HIPCHAT_TOKEN"
+
+  - grunt build --no-color
+
+  # notify grunt build success
+  - export HIPCHAT_MESSAGE="$HIPCHAT_MESSAGE_PREFIX syncing <b>$DEPLOY_S3_PATH</b> to <b>$DEPLOY_S3_BUCKET</b>"
+  - curl -sX POST --data "room_id=$HIPCHAT_ROOM&from=$HIPCHAT_FROM&message=$HIPCHAT_MESSAGE&color=$HIPCHAT_COLOR" "$HIPCHAT_ENDPOINT?auth_token=$HIPCHAT_TOKEN"
+
   - aws s3 sync $DEPLOY_S3_PATH $DEPLOY_S3_BUCKET --delete --acl public-read --region $DEPLOY_S3_REGION
 
-# after_success:
+  # notify s3 sync success
+  - export HIPCHAT_MESSAGE="$HIPCHAT_MESSAGE_PREFIX synced succeed to <a href=\"$DEPLOY_S3_URL\">$DEPLOY_S3_URL</a>"
+  - curl -sX POST --data "room_id=$HIPCHAT_ROOM&from=$HIPCHAT_FROM&message=$HIPCHAT_MESSAGE&color=$HIPCHAT_COLOR" "$HIPCHAT_ENDPOINT?auth_token=$HIPCHAT_TOKEN"
 
-# after_failure:
+after_success:
+  - export HIPCHAT_MESSAGE_PREFIX="<a href=\"$BUILD_URL\">#$BUILD_NUMBER</a> - <a href=\"$GITHUB_URL/tree/$BRANCH\">$BRANCH</a> -"
+  - export HIPCHAT_MESSAGE="$HIPCHAT_MESSAGE_PREFIX build succeed!"
+  - curl -sX POST --data "room_id=$HIPCHAT_ROOM&from=$HIPCHAT_FROM&message=$HIPCHAT_MESSAGE&color=$HIPCHAT_COLOR" "$HIPCHAT_ENDPOINT?auth_token=$HIPCHAT_TOKEN"
+
+after_failure:
+  - export HIPCHAT_COLOR="red"
+  - export HIPCHAT_MESSAGE_PREFIX="<a href=\"$BUILD_URL\">#$BUILD_NUMBER</a> - <a href=\"$GITHUB_URL/tree/$BRANCH\">$BRANCH</a> -"
+  - export HIPCHAT_MESSAGE="$HIPCHAT_MESSAGE_PREFIX build failed!"
+  - curl -sX POST --data "room_id=$HIPCHAT_ROOM&from=$HIPCHAT_FROM&message=$HIPCHAT_MESSAGE&color=$HIPCHAT_COLOR&notify=1" "$HIPCHAT_ENDPOINT?auth_token=$HIPCHAT_TOKEN"
 
 # after_script
 
@@ -51,11 +100,18 @@ branches:
     - master
 
 env:
-  secure: r0C8RXjCZ+/x/cf1s6HRjDbbZGiPN9ZG/Eakqp9id4sH5CER0FxDV7XCU4OwCEit12iv1o964BAOOwEixb0Qaq2hGVBdYxg3u9CFc/udMUziFNO7SZaMx+yGSRlt3uxaA3WYwYR6qHLgdZ02hN12kl9mYkDp6OSTWmdSRA5MWLMUSrAGoUs0BocL8C5nCKssW2J/M2Uoek3ECJ27JRRvdS17+Rm+kO1aD4C4UqvV13LMYmDBSfGxFFsTV/GE6M3TsDvgKfl/O5CLYFzqrNiaxp1vK4iDQQwXOEOZkN17kn5+keqt+O5UNnQydcYF4flKe8E+vs1Pl1Vxo+uQxkyUgw==
+  global:
+    - HIPCHAT_FROM="Shippable"
+    - HIPCHAT_ROOM="647163"
+    - HIPCHAT_COLOR="green"
+    - HIPCHAT_ENDPOINT="https://api.hipchat.com/v1/rooms/message"
+    - GITHUB_URL="https://github.com/kilianc/codename.co"
+    - secure: W8o1kYo0OfunI3yuwmlOG+pSRJhvYugPfmfdLJ5fL+XDxpUSGCtsgkto2HPrIjYwv7KT8Y3q5q6bZR3otbOUFkjFcVZk4qohLdm/Fuq+NuvrSFiRhgHN2MbAJvMjqwGxZvrFfj5QYtIlU3ZgJ5lZoRYolbz59NBzZCBlgffRKLdYYR/k3FcHUJo7IHoN8a2ZpGAturHrGpVqYQyqPjNKwp3ukgi8T4li0w66s0VTqAMFv5LyrkBjzOt6iBBLXMb+j/AhV1dwiapf0okOBroKgHOpQpmsQqkr2sCplMh8Nt+GWYYwbwTjdDnlwyDpnrn1wdnm8nyz2QsKCQV6EjQovw==
+    - secure: E560VismwC9E+0p6b6uKVYoq54oriEXe75Hf4f2tMESZhD3fOzx04toLvZTM+NtggqQ9Nm72AWRhETvSDYF+fYFExj+ri1fEJOeJTC6ffn0rVrAaOQ43mHao+51qpPz3HXORR8o9BUOOUiMplwVWpW4QiNoiKUkLLPutov9B9bgRLhe7X5iXPcgHTeMum5MY4xzl/QYex/4eIWOV+ySaIgCB+agLmpaMPL1hTIubXBX4ZbkjU+t+xY5cWZlLSKhM3gdc+FJkLQZs4Sh8XbR9UzsYKRfV3niMU5dEFWdCEoYGE/8NjEjy3rN8Ghx9Opk5Fi4dL2Sge71hvvmlfPWfjg==
 
 notifications:
   email:
     recipients:
       - builds@codename.co
     on_success: change
-    on_failure: always
+    on_failure: change
