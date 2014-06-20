@@ -1,6 +1,18 @@
 {
+  "name": "codename.co",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kilianc/codename.co.git"
+  },
   "scripts": {
-    "deploy-prod": "aws s3 sync dist s3://codename.co --region us-east-1",
-    "deploy-dev": "aws s3 sync app s3://dev.codename.co --region us-east-1"
+    "install-hooks": "ln -sf ../../hooks/pre-push .git/hooks/pre-push && chmod +x .git/hooks/*",
+    "deploy-dev": "echo \"require('./scripts/deploy').deploy('refs/heads/develop')\" | node",
+    "deploy-stag": "echo \"require('./scripts/deploy').deploy('refs/heads/staging')\" | node",
+    "deploy-prod": "echo \"require('./scripts/deploy').deploy('refs/heads/master')\" | node"
+  },
+  "dependencies": {
+    "cli-color": "^0.3.2",
+    "config": "^0.4.36"
   }
 }

@@ -1,0 +1,18 @@
+{
+  "deploy": {
+    "targets": {
+      "refs/heads/develop": {
+        "bucket": "s3://dev.codename.co",
+        "region": "us-west-2",
+        "path": "app",
+        "url": "http://dev.codename.co"
+      },
+      "refs/heads/master": {
+        "bucket": "s3://codename.co",
+        "region": "us-east-1",
+        "path": "dist",
+        "url": "http://codename.co"
+      }
+    }
+  }
+}

@@ -1,12 +1,18 @@
-#!/Users/kilian/.nvm/v0.11.13/bin/node
+#!/usr/bin/env node
 
 var readline = require('readline')
+  , deploy = require('../scripts/deploy').deploy
 
-var rl = readline.createInterface({
+readline.createInterface({
   input: process.stdin,
-  output: process.stdout
-})
+  output: {}
+}).on('line', function (refs) {
+  refs = refs.split(' ')
 
-rl.on('line', function (cmd) {
-  console.log('line: %s', cmd)
+  var sourceRef = refs[0]
+  var sourceHash = refs[1]
+  var destRef = refs[2]
+  var destHash = refs[3]
+
+  deploy(destRef)
 })
