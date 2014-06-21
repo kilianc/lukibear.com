@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       dest: 'dist/',
       src: [
         'bower/**',
-        'img/**',
+        'images/**',
         'views/**',
         'index.html'
       ]
