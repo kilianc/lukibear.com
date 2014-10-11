@@ -5,7 +5,9 @@
     "type": "git",
     "url": "git@github.com:lukibear/lukibear.com.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "rimraf": "^2.2.8"
+  },
   "devDependencies": {
     "bower": "^1.3.5",
     "config": "^0.4.36",

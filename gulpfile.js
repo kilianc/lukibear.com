@@ -1,12 +1,12 @@
 var gulp = require('gulp')
   , plugins = require('gulp-load-plugins')()
+  , rimraf = require('rimraf')
   , express = require('express')
   , patches = require('./patches')
   , config = require('config')
 
-gulp.task('clean', function () {
-  return gulp.src('dist')
-    .pipe(plugins.clean())
+gulp.task('clean', function (done) {
+  rimraf('./dist', done)
 })
 
 gulp.task('images', function () {
