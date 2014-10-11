@@ -1,11 +1,5 @@
 {
-  "name": "codename.co",
-  "version": "0.0.0",
-  "homepage": "https://github.com/kilianc/codename.co",
-  "authors": [
-    "Kilian Ciuffolo <kilian.ciuffolo@gmail.com>"
-  ],
-  "license": "MIT",
+  "name": "lukibear.com",
   "private": true,
   "dependencies": {
     "html5shiv": "~3.7.2",
