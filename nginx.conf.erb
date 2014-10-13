@@ -1,0 +1,26 @@
+worker_processes 1;
+error_log stderr;
+pid nginx.pid;
+daemon off;
+
+events {
+  worker_connections 768;
+}
+
+http {
+  types_hash_max_size 2048;
+  include mime.types;
+
+  server {
+    listen <%= ENV['PORT'] %>;
+    server_name  _;
+    index index.html;
+
+    location / {
+      proxy_pass http://<%= ENV['BUCKET_HOST'] %>/<%= ENV['BRANCH'] %>/;
+      proxy_set_header Host <%= ENV['BUCKET_HOST'] %>;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $remote_addr;
+    }
+  }
+}
