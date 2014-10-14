@@ -1,7 +1,8 @@
 .sass-cache/
+.tmp/
 .watch
 app/bower
 app/css/compiled/*
-app/scripts/providers/config.js
+app/scripts/config.js
+config/runtime.json
 dist/
-.tmp/
