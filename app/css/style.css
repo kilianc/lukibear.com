@@ -794,9 +794,6 @@
 		}
 
 		#header .logo {
-			background: url(../images/logo.png) no-repeat;
-			color: white;
-			cursor: default;
 			display: inline-block;
 			font-size: 2.25em;
 			line-height: 2.35em;
@@ -948,6 +945,10 @@
 			background: white;
 		}
 
+		.team {
+			text-align: center;
+		}
+
 		.team-picture {
 			margin-top: 100px;
 			display: inline-block;
@@ -960,4 +961,12 @@
 
 		.team h3 {
 			margin-bottom: 0;
+		}
+
+		office-picture {
+			position: relative;
+		}
+
+		.office-picture img {
+			width: 100%;
 		}
