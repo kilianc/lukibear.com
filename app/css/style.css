@@ -747,15 +747,6 @@
 		text-align: center;
 	}
 
-		#header:before, #header:after {
-			background: rgba(224, 224, 224, 0.75);
-			content: '';
-			left: 50%;
-			position: absolute;
-			width: 1px;
-			z-index: 0;
-		}
-
 		#header:before {
 			height: calc(100% - 50px);
 			opacity: 0.15;
