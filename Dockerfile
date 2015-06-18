@@ -10,3 +10,4 @@ EXPOSE 8080
 # app
 WORKDIR /app
 ADD app ./
+ADD CHECKS ./
