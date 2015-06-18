@@ -5,15 +5,10 @@
     "type": "git",
     "url": "git@github.com:lukibear/lukibear.com.git"
   },
-  "dependencies": {
-    "gulp": "^3.8.10",
-    "rimraf": "^2.2.8"
-  },
   "devDependencies": {
-    "bower": "^1.3.5",
     "config": "^0.4.36",
     "express": "^4.4.5",
-    "gulp": "^3.8.8",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "0.0.7",
     "gulp-cache": "^0.2.0",
     "gulp-clean": "^0.3.1",
@@ -27,6 +22,7 @@
     "gulp-template": "^0.1.1",
     "gulp-uglify": "^0.3.1",
     "gulp-useref": "^0.4.5",
-    "matchdep": "^0.3.0"
+    "matchdep": "^0.3.0",
+    "rimraf": "^2.2.8"
   }
 }
