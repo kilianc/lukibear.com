@@ -78,10 +78,6 @@
 /* Header */
 
 	#header {
-		background-image: url("../../images/header.jpg") !important;
-		background-size: cover !important;
-		background-position: scroll !important;
-		-ms-behavior: url("css/ie/backgroundsize.min.htc");
 		padding: 8em 0 !important;
 		color: white;
 	}
