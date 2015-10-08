@@ -1,5 +1,5 @@
 # boilerplate
-FROM kilianciuffolo/static
+FROM kilianciuffolo/node
 MAINTAINER kilian@lukibear.com
 
 # app
@@ -9,4 +9,5 @@ RUN npm install && npm cache clean
 
 COPY . ./
 RUN node_modules/.bin/gulp
-CMD http-server dist
+CMD ["node", "--harmony", "server"]
+EXPOSE 8080

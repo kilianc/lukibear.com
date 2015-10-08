@@ -51,13 +51,13 @@ gulp.task('sass', function () {
  */
 
 gulp.task('ejs', function () {
-  return gulp.src('app/app.ejs')
+  return gulp.src('app/scripts/app.ejs')
     .pipe(plugins.ejs({}, { ext: '.js' }))
       .on('error', function (err) {
         plugins.util.log('ejs error', err.message)
         plugins.util.beep()
       })
-    .pipe(gulp.dest('app'))
+    .pipe(gulp.dest('app/scripts'))
 })
 
 /**
@@ -66,7 +66,7 @@ gulp.task('ejs', function () {
 
 gulp.task('app', ['build:app'], function (done) {
   gulp.watch('app/scss/*', ['sass'])
-  gulp.watch('app/app.ejs', ['ejs'])
+  gulp.watch('app/scripts/app.ejs', ['ejs'])
 
   plugins.livereload({ start: true })
 
@@ -111,6 +111,15 @@ gulp.task('build:app', function (done) {
 gulp.task('copy:images', function () {
   return gulp.src('app/images/**/*')
     .pipe(gulp.dest('dist/images'))
+})
+
+/**
+ * Copy fonts
+ */
+
+gulp.task('copy:fonts', function () {
+  return gulp.src('app/fonts/**/*')
+    .pipe(gulp.dest('dist/fonts'))
 })
 
 /**
@@ -170,7 +179,7 @@ gulp.task('minify', function (done) {
  */
 
 gulp.task('build:dist', function (done) {
-  run(['build:app', 'clean:dist'], 'copy:images', 'html', 'minify', done)
+  run(['build:app', 'clean:dist'], 'copy:images', 'copy:fonts', 'html', 'minify', done)
 })
 
 /**

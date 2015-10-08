@@ -1,7 +1,7 @@
 .DS_Store
 .env
 .git
-app/*.js
+app/scripts/app.js
 app/css/*
 dist
 node_modules
