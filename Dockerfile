@@ -1,8 +1,12 @@
-# boilerpale
+# boilerplate
 FROM kilianciuffolo/static
-MAINTAINER me@nailik.org
+MAINTAINER kilian@lukibear.com
 
 # app
-WORKDIR /app
-ADD app ./
-ADD CHECKS ./
+WORKDIR /website
+COPY package.json ./
+RUN npm install && npm cache clean
+
+COPY . ./
+RUN node_modules/.bin/gulp
+CMD http-server dist

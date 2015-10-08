@@ -1,0 +1,145 @@
+// **
+// variables
+// **
+
+$spacing: 20px;
+$border-radius: 5px;
+$fonts: "avenir-light" "avenir-roman";
+$colors: #24C6DC #4A4F9D;
+
+// **
+// imports
+// **
+
+@import "bourbon";
+@import "neat";
+
+// **
+// font families
+// **
+
+@each $font in $fonts {
+  @include font-face($font, "../fonts/#{$font}", $file-formats: eot ttf woff);
+}
+
+// **
+// reset
+// **
+
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  font-weight: normal;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+ol, ul {
+  list-style: none;
+}
+
+pre {
+  font-family: inherit !important;
+}
+
+input {
+  font: inherit !important;
+}
+
+// **
+// styles
+// **
+
+body {
+  font-family: nth($fonts, 1);
+  font-size: 16px;
+  color: white;
+  height: 100vh;
+  @include background-image(linear-gradient(to right, nth($colors, 1), nth($colors, 2)));
+}
+
+.main {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+
+  h1 {
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 34px;
+    a {
+      opacity: .7;
+
+      span {
+        text-decoration: underline;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 29px;
+    opacity: .7;
+  }
+
+  a.cta {
+    position: absolute;
+    top: 100%;
+    margin-top: 15px;
+    display: inline-block;
+    width: 140px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: white;
+    font-size: 14px;
+    border-radius: 3px;
+    font-weight: 800;
+    color: nth($colors, 1);
+
+    &:hover {
+      @include animation(scale 0.5s ease-out);
+      opacity: .95;
+    }
+
+    &:active {
+      margin-top: 16px;
+    }
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 50px;
+  left: 10%;
+}
+
+// **
+// animations
+// **
+
+@include keyframes(scale) {
+  0% {
+    @include transform(scale(1.05));
+  }
+  100% {
+    @include transform(scale(1));
+  }
+}
