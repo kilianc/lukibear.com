@@ -4,7 +4,7 @@
 
 $spacing: 20px;
 $border-radius: 5px;
-$fonts: "avenir-light" "avenir-roman";
+$fonts: "avenir-light" "avenir-roman" "avenir-heavy";
 $colors: #24C6DC #4A4F9D;
 $mobile: 500px;
 
@@ -65,6 +65,7 @@ body {
   font-size: 16px;
   color: white;
   height: 100vh;
+  overflow-x: hidden;
   @include background-image(linear-gradient(to right, nth($colors, 1), nth($colors, 2)));
 
   @media (max-width: $mobile) {
@@ -77,7 +78,7 @@ body {
   width: 100%;
   top: 50%;
   left: 10%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateZ(0px);
 
   @media (max-width: $mobile) {
     left: 0;
@@ -88,6 +89,7 @@ body {
     position: absolute;
     bottom: 100%;
     margin-bottom: 15px;
+    letter-spacing: -2px;
 
     @media (max-width: $mobile) {
       left: 50%;
@@ -118,6 +120,7 @@ body {
 
   h3 {
     font-size: 29px;
+    letter-spacing: -1px;
     opacity: .7;
 
     @media (max-width: $mobile) {
@@ -138,7 +141,7 @@ body {
     background: white;
     font-size: 14px;
     border-radius: 3px;
-    font-weight: 800;
+    font-family: "avenir-heavy";
     color: nth($colors, 1);
 
     @media (min-width: $mobile) {
@@ -161,6 +164,8 @@ body {
 }
 
 footer {
+  font-family: "avenir-roman";
+  font-size: 14px;
   position: absolute;
   width: 100%;
   bottom: 50px;
