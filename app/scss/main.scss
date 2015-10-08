@@ -6,6 +6,7 @@ $spacing: 20px;
 $border-radius: 5px;
 $fonts: "avenir-light" "avenir-roman";
 $colors: #24C6DC #4A4F9D;
+$mobile: 500px;
 
 // **
 // imports
@@ -65,22 +66,43 @@ body {
   color: white;
   height: 100vh;
   @include background-image(linear-gradient(to right, nth($colors, 1), nth($colors, 2)));
+
+  @media (max-width: $mobile) {
+    text-align: center;
+  }
 }
 
 .main {
   position: absolute;
+  width: 100%;
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
+
+  @media (max-width: $mobile) {
+    left: 0;
+    padding: 0 7%;
+  }
 
   h1 {
     position: absolute;
     bottom: 100%;
     margin-bottom: 15px;
+
+    @media (max-width: $mobile) {
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 0;
+    }
   }
 
   h2 {
     font-size: 34px;
+
+    @media (max-width: $mobile) {
+      font-size: 19px
+    }
+
     a {
       opacity: .7;
 
@@ -97,6 +119,11 @@ body {
   h3 {
     font-size: 29px;
     opacity: .7;
+
+    @media (max-width: $mobile) {
+      margin-top: 104px;
+      font-size: 17px;
+    }
   }
 
   a.cta {
@@ -122,13 +149,39 @@ body {
     &:active {
       margin-top: 16px;
     }
+
+    @media (max-width: $mobile) {
+      font-size: 13px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
 
 footer {
   position: absolute;
+  width: 100%;
   bottom: 50px;
   left: 10%;
+
+  br {
+    display: none;
+  }
+
+  @media (max-width: $mobile) {
+    left: 0;
+    padding: 0 7%;
+    font-size: 12px;
+    bottom: 25px;
+
+    span {
+      display: none;
+    }
+
+    br {
+      display: inline;
+    }
+  }
 }
 
 // **
