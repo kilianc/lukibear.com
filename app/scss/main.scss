@@ -93,7 +93,7 @@ body {
 
 .main {
   position: absolute;
-  width: 100%;
+  width: auto;
   top: 50%;
   left: 10%;
   transform: translateY(-50%) translateZ(0px);
@@ -185,7 +185,7 @@ footer {
   font-family: "avenir-roman";
   font-size: 14px;
   position: absolute;
-  width: 100%;
+  width: auto;
   bottom: 50px;
   left: 10%;
 
