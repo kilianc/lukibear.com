@@ -1,0 +1,85 @@
+/*!
+ * app.ejs
+ * Created by Kilian Ciuffolo on Oct 8, 2015
+ * (c) 2015 lukibear http://lukibear.com
+ */
+
+'use strict'
+
+$(function () {
+  mousePointers()
+  analytics()
+})
+
+/**
+ * Setup and shows guests mouse pointers
+ * @return
+ */
+function mousePointers() {
+  var pointerOffset = 5
+  var guests = {}
+  var socket = io()
+  var main = $('.main')
+  var offsetLeft, offsetTop
+
+  socket
+    .on('connect', onConnect)
+    .on('guest:move', onMove)
+    .on('guest:disconnect', onDisconnect)
+
+  function onConnect() {
+    $(window).on('mousemove', function (e) {
+      socket.emit('move', {
+        x: e.clientX - offsetLeft,
+        y: e.clientY - offsetTop
+      })
+    }).on('resize', function () {
+      var offset = main.offset()
+      offsetTop = offset.top
+      offsetLeft = offset.left
+    }).trigger('resize')
+  }
+
+  function onMove(data) {
+    var guest = guests[data.id]
+
+    if (guest === undefined) {
+      guest = guests[data.id] = $('<div class="pointer init">').css({
+        left: data.x - pointerOffset + offsetTop,
+        top: data.y - pointerOffset + offsetLeft,
+      }).appendTo(document.body)
+
+      setTimeout(function () {
+        guest.removeClass('init')
+      }, 100)
+    }
+
+    guest.css({
+      left: data.x - pointerOffset + offsetLeft,
+      top: data.y - pointerOffset + offsetTop,
+    })
+  }
+
+  function onDisconnect(id) {
+    var guest = guests[id]
+    if (!guest) return
+
+    guest.css('opacity', 0)
+    setTimeout(function () {
+      $(guest).remove()
+      ;delete guests[id]
+    }, 1000)
+  }
+}
+
+function analytics() {
+  mixpanel.track('page-view')
+
+  $('a.cta').on('click', function () {
+    mixpanel.track('contact-click')
+  })
+
+  $('h2 a').on('click', function () {
+    mixpanel.track('rtail-org-click')
+  })
+}

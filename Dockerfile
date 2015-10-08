@@ -1,8 +1,13 @@
-# boilerpale
-FROM kilianciuffolo/static
-MAINTAINER me@nailik.org
+# boilerplate
+FROM kilianciuffolo/node
+MAINTAINER kilian@lukibear.com
 
 # app
-WORKDIR /app
-ADD app ./
-ADD CHECKS ./
+WORKDIR /website
+COPY package.json ./
+RUN npm install && npm cache clean
+
+COPY . ./
+RUN node_modules/.bin/gulp
+CMD ["node", "--harmony", "server"]
+EXPOSE 8080

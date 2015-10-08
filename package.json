@@ -1,0 +1,41 @@
+{
+  "name": "lukibear-website",
+  "version": "2.0.0",
+  "description": "lukibear.com",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lukibear/lukibear.com.git"
+  },
+  "dependencies": {
+    "express": "^4.13.0",
+    "socket.io": "^1.3.7"
+  },
+  "devDependencies": {
+    "animate.css": "^3.2.5",
+    "autoprefixer": "^6.0.1",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-ejs": "^1.1.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-minify-html": "^1.0.3",
+    "gulp-postcss": "^6.0.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-useref": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "jquery": "^2.1.4",
+    "node-bourbon": "^4.2.3",
+    "node-neat": "^1.7.2",
+    "run-sequence": "^1.1.1"
+  },
+  "scripts": {
+    "deploy-dev": "git push -f dokku/dev $(git rev-parse --abbrev-ref HEAD):master",
+    "deploy-prod": "git push -f dokku/prod $(git rev-parse --abbrev-ref HEAD):master"
+  },
+  "author": "Kilian Ciuffolo <kilian@lukibear.com>",
+  "license": "UNLICENSED"
+}

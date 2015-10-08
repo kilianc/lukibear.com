@@ -1,0 +1,223 @@
+// **
+// variables
+// **
+
+$spacing: 20px;
+$border-radius: 5px;
+$fonts: "avenir-light" "avenir-roman" "avenir-heavy";
+$colors: #24C6DC #4A4F9D;
+$mobile: 500px;
+
+// **
+// imports
+// **
+
+@import "bourbon";
+@import "neat";
+
+// **
+// font families
+// **
+
+@each $font in $fonts {
+  @include font-face($font, "../fonts/#{$font}", $file-formats: eot ttf woff);
+}
+
+// **
+// reset
+// **
+
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  font-weight: normal;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+ol, ul {
+  list-style: none;
+}
+
+pre {
+  font-family: inherit !important;
+}
+
+input {
+  font: inherit !important;
+}
+
+// **
+// styles
+// **
+
+body {
+  font-family: nth($fonts, 1);
+  font-size: 16px;
+  color: white;
+  height: 100vh;
+  overflow-x: hidden;
+  @include background-image(linear-gradient(to right, nth($colors, 1), nth($colors, 2)));
+
+  @media (max-width: $mobile) {
+    text-align: center;
+  }
+}
+
+.pointer {
+  transition: opacity .5s, transform .5s;
+  width: 29px;
+  height: 30px;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  background: url('../images/cursor.png') no-repeat;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+
+  &.init {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+.main {
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%) translateZ(0px);
+
+  @media (max-width: $mobile) {
+    left: 0;
+    padding: 0 7%;
+  }
+
+  h1 {
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: 15px;
+
+    @media (max-width: $mobile) {
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 0;
+    }
+  }
+
+  h2 {
+    font-size: 34px;
+    letter-spacing: -1px;
+
+    @media (max-width: $mobile) {
+      font-size: 19px
+    }
+
+    a {
+      opacity: .7;
+
+      span {
+        text-decoration: underline;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 29px;
+    letter-spacing: -1px;
+    opacity: .7;
+
+    @media (max-width: $mobile) {
+      margin-top: 104px;
+      font-size: 17px;
+    }
+  }
+
+  a.cta {
+    position: absolute;
+    top: 100%;
+    margin-top: 15px;
+    display: inline-block;
+    width: 140px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: white;
+    font-size: 14px;
+    border-radius: 3px;
+    font-family: "avenir-heavy";
+    color: nth($colors, 1);
+
+    @media (min-width: $mobile) {
+      &:hover {
+        @include animation(scale 0.5s ease-out);
+        opacity: .95;
+      }
+    }
+
+    &:active {
+      margin-top: 16px;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 13px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+footer {
+  font-family: "avenir-roman";
+  font-size: 14px;
+  position: absolute;
+  width: auto;
+  bottom: 50px;
+  left: 10%;
+
+  br {
+    display: none;
+  }
+
+  @media (max-width: $mobile) {
+    left: 0;
+    padding: 0 7%;
+    font-size: 12px;
+    bottom: 25px;
+
+    span {
+      display: none;
+    }
+
+    br {
+      display: inline;
+    }
+  }
+}
+
+// **
+// animations
+// **
+
+@include keyframes(scale) {
+  0% {
+    @include transform(scale(1.05));
+  }
+  100% {
+    @include transform(scale(1));
+  }
+}
