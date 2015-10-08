@@ -73,6 +73,8 @@ function mousePointers() {
 }
 
 function analytics() {
+  mixpanel.track('page-view')
+
   $('a.cta').on('click', function () {
     mixpanel.track('contact-click')
   })
