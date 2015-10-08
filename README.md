@@ -18,10 +18,10 @@ This will spin up a local server with [livereload](https://chrome.google.com/web
 
 This website is deployed using a `Dockerfile` included in this repo. If you want to check that everything is working properly you can build and run the image yourself. If you need guidance on how to install docker you can read here: https://docs.docker.com/machine/install-machine/
 
-    $ docker build -t tinymce/website .
-    $ docker run --rm -p 8080:8080 --name tinymce-website tinymce/website
+    $ docker build -t lukibear-com .
+    $ docker run --rm -p 8080:8080 --name lukibear-com lukibear-com
     $ open http://$(docker-machine ip default):8080
-    $ docker stop tinymce-website
+    $ docker stop lukibear-com
 
 ### Deploy
 
