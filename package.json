@@ -32,6 +32,10 @@
     "node-neat": "^1.7.2",
     "run-sequence": "^1.1.1"
   },
+  "scripts": {
+    "deploy-dev": "git push -f dokku/dev $(git rev-parse --abbrev-ref HEAD):master",
+    "deploy-prod": "git push -f dokku/prod $(git rev-parse --abbrev-ref HEAD):master"
+  },
   "author": "Kilian Ciuffolo <kilian@lukibear.com>",
   "license": "UNLICENSED"
 }

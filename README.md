@@ -32,8 +32,8 @@ Only the first time
 
 Then deploy every time to dev (https://dev.lukibear.com/) with:
 
-    $ git push -f dokku/dev <yourbranch>:master
+    $ npm run deploy-dev
 
 or to prod (https://lukibear.com/) with:
 
-    $ git push -f dokku/prod <yourbranch>:master
+    $ npm run deploy-dev
