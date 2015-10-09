@@ -1,10 +1,11 @@
-box: kilianciuffolo/git
+box: kilianciuffolo/node
 
 build:
   steps:
+    - npm-install
     - script:
-        name: dokku
-        code: echo "build"
+        name: gulp build
+        code: node_modules/.bin/gulp build:dist
 
 deploy:
   steps:
