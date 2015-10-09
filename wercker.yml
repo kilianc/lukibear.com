@@ -1,4 +1,4 @@
-box: kilianciuffolo/node
+box: kilianciuffolo/wercker
 
 build:
   steps:
