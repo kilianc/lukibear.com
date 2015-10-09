@@ -1,0 +1,22 @@
+box: kilianciuffolo/git
+
+build:
+  steps:
+    - script:
+        name: dokku
+        code: echo "build"
+
+deploy:
+  steps:
+    - add-to-known_hosts:
+        hostname: $DOKKU_HOST
+    - add-ssh-key:
+        keyname: DOKKU_KEY
+    - script:
+        name: git push
+        code: |
+          git remote add dokku $DOKKU_USER@$DOKKU_HOST:$DOKKU_APP
+          git push -f dokku $(git rev-parse --abbrev-ref HEAD):master
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_WEBHOOK_URL
