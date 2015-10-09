@@ -9,6 +9,7 @@
 $(function () {
   mousePointers()
   analytics()
+  cta()
 })
 
 /**
@@ -72,6 +73,10 @@ function mousePointers() {
   }
 }
 
+/**
+ * Track stuff
+ * @return
+ */
 function analytics() {
   mixpanel.track('page-view')
 
@@ -82,4 +87,13 @@ function analytics() {
   $('h2 a').on('click', function () {
     mixpanel.track('rtail-org-click')
   })
+}
+
+/**
+ * Set link to CTA
+ * @return
+ */
+function cta() {
+  var href = $('a.cta').attr('href')
+  $('a.cta').attr('href', href.replace('_mail_', atob('aW5mb0BsdWtpYmVhci5jb20=')))
 }
