@@ -75,12 +75,13 @@ body {
 
 .pointer {
   transition: opacity .5s, transform .5s;
-  width: 29px;
+  width: 30px;
   height: 30px;
   position: absolute;
   top: -50px;
   left: -50px;
   background: url('../images/cursor.png') no-repeat;
+  background-size: 100%;
   opacity: 1;
   transform: scale(1);
   transform-origin: 50% 50%;
