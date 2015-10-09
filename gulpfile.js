@@ -141,9 +141,9 @@ gulp.task('html', function () {
  */
 
 gulp.task('minify:js', function () {
-  return gulp.src('dist/bundle.min.js')
+  return gulp.src('dist/scripts/bundle.min.js')
     .pipe(plugins.uglify())
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/scripts'))
 })
 
 /**
