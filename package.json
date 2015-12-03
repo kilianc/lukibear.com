@@ -35,8 +35,8 @@
   },
   "scripts": {
     "docker-build": "docker build -t lukibear/lukibear-com .",
-    "deploy-dev": "git push -f dokku/dev HEAD:master",
-    "deploy-prod": "git push -f dokku/prod HEAD:master"
+    "deploy-dev": "git push -f dokku@git.lukibear.com:dev HEAD:master",
+    "deploy-prod": "git push -f dokku@git.lukibear.com:lukibear.com HEAD:master"
   },
   "author": "Kilian Ciuffolo <kilian@lukibear.com>",
   "license": "UNLICENSED"
