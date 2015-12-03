@@ -1,5 +1,5 @@
 # boilerplate
-FROM kilianciuffolo/node
+FROM kilianciuffolo/node:4.2.2
 MAINTAINER kilian@lukibear.com
 
 # app

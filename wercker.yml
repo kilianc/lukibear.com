@@ -1,4 +1,4 @@
-box: kilianciuffolo/wercker
+box: kilianciuffolo/wercker:4.2.2
 
 build:
   steps:
@@ -15,9 +15,7 @@ deploy:
         keyname: DOKKU_KEY
     - script:
         name: git push
-        code: |
-          git remote add dokku $DOKKU_USER@$DOKKU_HOST:$DOKKU_APP
-          git push -f dokku $(git rev-parse --abbrev-ref HEAD):master
+        code: git push -f $DOKKU_USER@$DOKKU_HOST:$DOKKU_APP HEAD:master
   after-steps:
     - slack-notifier:
         url: $SLACK_WEBHOOK_URL
