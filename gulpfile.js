@@ -127,11 +127,7 @@ gulp.task('copy:fonts', function () {
  */
 
 gulp.task('html', function () {
-  var assets = plugins.useref.assets()
-
   return gulp.src('app/index.html')
-    .pipe(assets)
-    .pipe(assets.restore())
     .pipe(plugins.useref())
     .pipe(gulp.dest('dist'))
 })
