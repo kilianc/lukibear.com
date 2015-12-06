@@ -29,6 +29,6 @@ server.listen(8080)
  * Quit if SIGINT
  */
 process.on('SIGINT', function() {
-  console.log('Caught interrupt signal')
+  console.log('> caught interrupt signal')
   process.exit()
 })
