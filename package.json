@@ -35,7 +35,7 @@
   },
   "scripts": {
     "docker-build": "docker build -t lukibear/lukibear-com .",
-    "docker-run": "docker run --rm e DEBUG=* -e DEBUG_COLORS=1 -p 8080:8080 lukibear/lukibear-com",
+    "docker-run": "docker run --rm -e DEBUG=* -e DEBUG_COLORS=1 -p 8080:8080 lukibear/lukibear-com",
     "deploy-dev": "git push -f dokku@git.lukibear.com:dev HEAD:master",
     "deploy-prod": "git push -f dokku@git.lukibear.com:lukibear.com HEAD:master"
   },
