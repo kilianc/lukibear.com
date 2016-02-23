@@ -6,6 +6,7 @@
 
 section .inner-content,
 nav .inner-content,
+header .inner-content,
 footer .inner-content {
   @include outer-container($local-max-width: $breakpoint-xl);
   padding: 0 $margin-md;
