@@ -181,7 +181,7 @@ a.icon:hover {
 }
 
 .btn-stealth {
-  background: transparent;
+  background: none;
   border: 1px solid $color-white;
   color: $color-white;
 
@@ -191,6 +191,10 @@ a.icon:hover {
 
   &:active {
     background: transparent;
+  }
+
+  &:active {
+    transform: none;
   }
 }
 
