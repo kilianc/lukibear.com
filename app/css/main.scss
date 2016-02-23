@@ -1,0 +1,804 @@
+/*!
+ * main.scss
+ * Created by Kilian Ciuffolo on Feb 15, 2016
+ * (c) 2016 lukibear https://lukibear.com
+ */
+
+@import "variables";
+@import "bourbon";
+@import "neat";
+@import "mixins";
+@import "reset";
+@import "typography";
+@import "components";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  text-align: center;
+}
+
+nav {
+  $height: 77px;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $height;
+  line-height: $height;
+  text-transform: uppercase;
+  clear: both;
+  transition: all 0.3s;
+  z-index: 100;
+
+  @include media(max-width $breakpoint-sm) {
+    display: none;
+  }
+
+  .right .link, .right span {
+    margin-right: $margin-md;
+  }
+
+  .logo,
+  .hiring {
+    display: block;
+    height: $height !important;
+    line-height: $height !important;
+    float: left;
+  }
+
+  .hiring {
+    margin-left: 10px;
+    font-family: "opensans-bold";
+    font-size: 9px;
+    padding-left: 4px;
+    transform: translateY(2px);
+  }
+
+  .link {
+    opacity: 0.7;
+    font-family: "opensans-bold";
+    font-size: 12px;
+    color: $color-mine-shaft;
+    line-height: 17px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.top {
+    background: transparent;
+
+    .logo {
+      @include image('images/logo-lukibear-white.svg');
+    }
+
+    .hiring {
+      @include image('images/btn-hiring-white.svg');
+      color: $color-chambray;
+    }
+
+    .dot {
+      color: $color-white;
+    }
+
+    .link {
+      opacity: 0.9;
+      color: $color-white;
+    }
+
+    .btn {
+      @extend .btn-stealth;
+    }
+  }
+
+  &.fixed {
+    background: $color-white;
+
+    .logo {
+      @include image('images/logo-lukibear-grey.svg');
+    }
+
+    .hiring {
+      @include image('images/btn-hiring-blue.svg');
+      color: $color-white;
+    }
+
+    .btn {
+      @extend .btn-picton;
+    }
+  }
+}
+
+header {
+  height: 564px;
+  padding-top: 180px;
+  background: $gradient-lucky-to-wind, url('images/img-header.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  color: $color-white;
+  text-align: center;
+
+  .logo {
+    display: none;
+    margin: 0 auto $margin-lg;
+    @include image('images/logo-lukibear-white.svg');
+  }
+
+  .btn {
+    margin-top: $margin-md;
+  }
+
+  @include media(max-width $breakpoint-sm) {
+    .scroll {
+      @include image('images/icn-scroll.svg');
+      margin: $margin-lg auto 0;
+    }
+  }
+
+  @include media(max-width $breakpoint-sm) {
+    height: 100%;
+
+    .inner-content {
+      @include position-center();
+      width: 100%;
+    }
+
+    .logo {
+      display: block;
+    }
+  }
+}
+
+#portfolio {
+  $height: 370px;
+
+  padding-top: $margin-md;
+
+  .inner-content {
+    @include media(max-width $breakpoint-portfolio) {
+      padding: 0;
+    }
+  }
+
+  .portfolio-item {
+    position: relative;
+    height: $height;
+    margin-bottom: $margin-md;
+    padding: $margin-lg;
+    text-align: left;
+
+    @include media(max-width $breakpoint-portfolio) {
+      height: auto;
+      padding: 30px;
+    }
+
+    &.portfolio-item-small {
+      background-position: 50% 50px;
+      background-size: cover;
+
+      .portfolio-item-description {
+        opacity: 0;
+      }
+
+      p {
+        max-width: 100% !important;
+      }
+
+      @include media(max-width $breakpoint-portfolio) {
+        height: $height;
+      }
+    }
+
+    .portfolio-item-logo {
+      position: relative;
+      opacity: 0.5;
+      z-index: 15;
+    }
+
+    .portfolio-item-description {
+      position: absolute;
+      bottom: $margin-lg;
+      left: $margin-lg;
+      z-index: 15;
+
+      @include media(max-width $breakpoint-portfolio) {
+        position: static;
+        margin-top: 30px;
+      }
+
+      h5 {
+        margin-bottom: $margin-sm;
+      }
+
+      p {
+        max-width: 40%;
+        margin-left: 0;
+
+        @include media(max-width $breakpoint-portfolio) {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .portfolio-item-art {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-position: 0 30px;
+      background-size: cover;
+      z-index: 5;
+
+      @include media(max-width $breakpoint-portfolio) {
+        position: static;
+        margin: 30px -30px -30px;
+        width: auto;
+        height: $height;
+        background-position: 0 0;
+      }
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color-mine-shaft;
+      opacity: 0;
+      z-index: 10;
+      transition: all 50ms;
+    }
+
+    &.hover:hover {
+      .portfolio-item-logo,
+      .portfolio-item-description {
+        opacity: 1;
+      }
+
+      .portfolio-item-overlay {
+        opacity: 0.9;
+        display: block;
+      }
+    }
+  }
+
+  .portfolio-item-generator {
+    background-image: $gradient-mine-to-void, url('images/img-adobe.jpg');
+    background-size: contain;
+    background-position: 100% 100%;
+
+    @include media(max-width $breakpoint-portfolio) {
+      background: $color-mine-shaft;
+    }
+
+    .portfolio-item-logo {
+      @include image('images/logo-adobe-black.svg');
+    }
+
+    .portfolio-item-art {
+      display: none;
+      top: 40%;
+      background-image: url('images/img-adobe.jpg');
+
+      @include media(max-width $breakpoint-portfolio) {
+        display: block;
+      }
+    }
+  }
+
+  .portfolio-item-tinymce {
+    background-color: $color-matisse;
+
+    .portfolio-item-logo {
+      @include image('images/logo-tinymce.svg');
+    }
+
+    .portfolio-item-art {
+      background-image: url('images/img-tinymce.png');
+
+      @include media(max-width $breakpoint-portfolio) {
+        background-position: 50% 0;
+      }
+    }
+  }
+
+  .portfolio-item-build {
+    background-color: $color-seashell;
+    background-image: url('images/img-build.png');
+    @include span-columns-fixed-gutter(6, $margin-md, $breakpoint-portfolio);
+
+    @include media(max-width $breakpoint-portfolio) {
+      background-size: 200% !important;
+      background-position: 20px 30px !important;
+    }
+  }
+
+  .portfolio-item-cancare {
+    background-color: $color-olive-drab;
+    background-image: url('images/img-cancare.png');
+    @include span-columns-fixed-gutter(6, $margin-md, $breakpoint-portfolio);
+
+    @include media(max-width $breakpoint-portfolio) {
+      background-size: 130% !important;
+      background-position: 10px 30px !important;
+    }
+  }
+
+  .portfolio-item-rtail {
+    background-color: $color-punch;
+
+    .portfolio-item-logo {
+      @include image('images/logo-rtail.svg');
+    }
+
+    .portfolio-item-art {
+      background-image: url('images/img-rtail.png');
+
+      @include media(max-width $breakpoint-portfolio) {
+        background-position: 27px 10px !important;
+      }
+    }
+  }
+
+  .portfolio-item-careers {
+    background-color: $color-mine-shaft;
+    background-image: url('images/img-careers.png');
+    @include span-columns-fixed-gutter(6, $margin-md, $breakpoint-portfolio);
+
+    @include media(max-width $breakpoint-portfolio) {
+      background-size: cover !important;
+      background-position: 30px 30px !important;
+    }
+  }
+
+  .portfolio-item-nodeinteractive {
+    background-color: $color-zest;
+    @include span-columns-fixed-gutter(6, $margin-md, $breakpoint-portfolio);
+
+    @include media(max-width $breakpoint-portfolio) {
+      height: auto !important;
+    }
+
+    .portfolio-item-logo {
+      @include image('images/logo-nodejs.svg');
+    }
+
+    .portfolio-item-description {
+      opacity: 1 !important;
+    }
+  }
+
+  > div > p {
+    max-width: 600px;
+    margin: $margin-lg auto $margin-md;
+
+    @include media(max-width $breakpoint-portfolio) {
+      padding: 0 30px;
+    }
+  }
+}
+
+#how-we-work {
+  background-image: $gradient-violent-to-grandis;
+  background-position: top left;
+  overflow: hidden;
+
+  .graph {
+    @include image('images/img-graph.svg');
+    width: 100%;
+    background-size: contain;
+
+    @include media(max-width $breakpoint-sm) {
+      @include image('images/img-graph-mobile.svg');
+      width: auto;
+    }
+  }
+
+  p {
+    margin: $margin-lg auto $margin-md;
+  }
+}
+
+#our-offer {
+  .inner-content {
+    max-width: 680px;
+  }
+
+  .our-offer-item {
+    text-align: left;
+    position: relative;
+    @include row();
+
+    &.reverse {
+      .our-offer-item-image {
+        position: absolute;
+        margin: 0;
+
+        @include media(max-width $breakpoint-md) {
+          position: static;
+        }
+      }
+
+      .our-offer-item-image {
+        right: 0;
+      }
+    }
+  }
+
+  .our-offer-item-image,
+  .our-offer-item-description {
+    @include span-columns-fixed-gutter(6, 50px, $breakpoint-md);
+    height: 233px;
+
+    @include media(max-width $breakpoint-sm) {
+      height: auto;
+    }
+  }
+
+  .our-offer-item-description {
+    position: relative;
+
+    > div {
+      @include position-center();
+      width: 100%;
+
+      @include media(max-width $breakpoint-sm) {
+        position: static;
+        transform: none;
+        margin-top: $margin-lg;
+      }
+    }
+  }
+
+  p {
+    margin: $margin-sm auto;
+  }
+
+  .btn {
+    margin-top: $margin-sm;
+  }
+}
+
+#philosophy {
+  position: relative;
+  padding-top: 130px;
+  background-color: black;
+  height: 410px;
+  overflow: hidden;
+
+  @include media(max-width $breakpoint-sm) {
+    height: auto;
+  }
+
+  > * {
+    position: relative;
+    z-index: 10;
+    padding: 0 30px;
+  }
+
+  .philosophy-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: $gradient-haiti-to-steel-rev;
+    z-index: 2 !important;
+    opacity: 0.5;
+  }
+
+  .video-poster {
+    display: none;
+    height: 100%;
+    width: 100%;
+    @include position-center();
+    background-image: url('images/img-earth.gif');
+    background-position: 50% 0;
+    background-size: cover;
+    z-index: 1 !important;
+    top: 60%;
+
+    @include media(max-width $breakpoint-sm) {
+      display: block;
+    }
+  }
+
+  video {
+    @include position-center();
+    top: 100%;
+    z-index: 1 !important;
+    max-width: $breakpoint-xl;
+
+    @include media(max-width $breakpoint-sm) {
+      display: none;
+    }
+  }
+}
+
+#team {
+  .inner-content {
+    max-width: 800px;
+  }
+
+  .team-members {
+    @include row();
+    margin-bottom: $margin-xl;
+
+    @include media(max-width $breakpoint-sm) {
+      margin-bottom: 0;
+    }
+  }
+
+  .team-member {
+    @include span-columns-fixed-gutter(4);
+
+    @include media(max-width $breakpoint-sm) {
+      cursor: pointer;
+      margin-bottom: $margin-lg;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    .funny {
+      display: none;
+    }
+
+    $members-gifs: (
+      "kilian"
+      "luca"
+      "kieran"
+      "mittie"
+    );
+
+    &:hover,
+    &:active,
+    &:focus {
+      .funny {
+        display: block;
+      }
+
+      .serious {
+        display: none;
+      }
+
+      @each $member in $members-gifs {
+        .#{$member} {
+          background-image: url('images/img-#{$member}.gif');
+          background-size: cover;
+        }
+      }
+    }
+
+    @at-root {
+      .preload-images {
+        $background: "none";
+        @each $member in $members-gifs {
+          $background: #{$background}, url('images/img-#{$member}.gif');
+        }
+        background-image: $background;
+      }
+    }
+  }
+
+  .team-member-headshot {
+    border-radius: 50%;
+    margin: 0 auto 10px;
+
+    $members: (
+      "kilian"
+      "luca"
+      "kieran"
+      "mittie"
+      "hiring-01"
+      "hiring-02"
+    );
+
+    @each $member in $members {
+      &.#{$member} {
+        @include image('images/img-#{$member}.jpg', 2);
+      }
+    }
+
+    // temp
+    &.mittie {
+      background: $color-chambray;
+      line-height: 188px;
+      color: rgba($color-white, 0.8);
+      font-size: 60px;
+    }
+  }
+
+  .inner-content:last-child {
+    max-width: 650px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .environment {
+    @include row();
+    margin-top: $margin-lg;
+    margin-bottom: $margin-lg;
+
+    @include media(max-width $breakpoint-sm) {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      &.first {
+        margin-top: $margin-lg;
+      }
+    }
+
+    > div {
+      @include span-columns-fixed-gutter(6);
+      padding-top: 60px;
+
+      @include media(max-width $breakpoint-sm) {
+        margin-bottom: $margin-lg;
+      }
+    }
+
+    h5 {
+      margin-bottom: 10px;
+    }
+
+    $values: (
+      "apple"
+      "slack"
+      "remote"
+      "learner"
+    );
+
+    @each $value in $values {
+      .environment-#{$value} {
+        background-image: url('images/icn-#{$value}.svg');
+        background-position: top center;
+      }
+    }
+  }
+}
+
+#brag {
+  background: $color-seashell;
+
+  .brag-customers {
+    margin: $margin-xl auto;
+
+    > div {
+      margin: 0 $margin-md;
+      display: inline-block;
+
+      @include media(max-width $breakpoint-sm) {
+        display: block;
+        margin: 30px auto;
+      }
+    }
+  }
+
+  .brag-customers-adobe {
+    @include image('images/logo-adobe-black.svg');
+  }
+
+  .brag-customers-ephox {
+    @include image('images/logo-ephox.svg');
+  }
+
+  .btn {
+    margin-top: $margin-md;
+  }
+}
+
+footer {
+  background-color: $color-mine-shaft;
+  overflow: hidden;
+
+  .logo {
+    @include image('images/logo-lukibear-white.svg');
+  }
+}
+
+footer.xl {
+  $height: 200px;
+
+  background-color: $color-mine-shaft;
+  height: $height;
+  line-height: $height;
+  text-align: left;
+
+  @include media(max-width 1000px) {
+    display: none;
+  }
+
+  .inner-content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .logo {
+    @include image('images/logo-lukibear-white.svg');
+    height: $height;
+    line-height: $height;
+    float: left;
+    margin-right: $margin-md;
+    margin-top: -3px;
+  }
+
+  p {
+    margin: 0;
+    line-height: $height;
+    font-size: 12px;
+    float: left;
+  }
+
+  .link {
+    opacity: 0.9;
+    font-family: "opensans-bold";
+    font-size: 12px;
+    color: $color-white;
+    line-height: 17px;
+    text-transform: uppercase;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .right .link, .right span {
+    margin-right: $margin-md;
+  }
+
+  .dot {
+    color: $color-white;
+  }
+}
+
+footer.sm {
+  display: none;
+  overflow: hidden;
+
+  @include media(max-width 1000px) {
+    display: block;
+  }
+
+  .link {
+    display: block;
+    text-align: center;
+    opacity: 0.9;
+    font-family: "opensans-bold";
+    font-size: 12px;
+    color: $color-white;
+    line-height: 17px;
+    text-transform: uppercase;
+    margin: $margin-lg auto;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .btn {
+    display: block;
+    width: 158px;
+    margin: 40px auto $margin-xl;
+  }
+
+  .logo {
+    @include image('images/logo-lukibear-white.svg');
+    margin: $margin-lg auto;
+  }
+}
+
+@import "dialogs";
+
+#slaask-button {
+  @include media(max-width $breakpoint-sm) {
+    display: none;
+  }
+}

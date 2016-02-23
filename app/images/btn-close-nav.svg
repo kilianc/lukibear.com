@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>btn-close-nav</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="guidelines-assets-mobile" sketch:type="MSArtboardGroup" transform="translate(-583.000000, -123.000000)" fill="#616161">
+            <g id="btn-close-nav" sketch:type="MSLayerGroup" transform="translate(583.000000, 123.000000)">
+                <path d="M0.292893219,1.70710678 L16.2928932,17.7071068 C16.6834175,18.0976311 17.3165825,18.0976311 17.7071068,17.7071068 C18.0976311,17.3165825 18.0976311,16.6834175 17.7071068,16.2928932 L1.70710678,0.292893219 C1.31658249,-0.0976310729 0.683417511,-0.0976310729 0.292893219,0.292893219 C-0.0976310729,0.683417511 -0.0976310729,1.31658249 0.292893219,1.70710678 L0.292893219,1.70710678 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                <path d="M16.2928932,0.292893219 L0.292893219,16.2928932 C-0.0976310729,16.6834175 -0.0976310729,17.3165825 0.292893219,17.7071068 C0.683417511,18.0976311 1.31658249,18.0976311 1.70710678,17.7071068 L17.7071068,1.70710678 C18.0976311,1.31658249 18.0976311,0.683417511 17.7071068,0.292893219 C17.3165825,-0.0976310729 16.6834175,-0.0976310729 16.2928932,0.292893219 L16.2928932,0.292893219 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

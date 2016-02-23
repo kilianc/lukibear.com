@@ -1,8 +1,8 @@
 .DS_Store
 .env
 .git
-app/scripts/app.js
-app/css/*
+app/bundle.min.css*
+app/bundle.min.js*
 dist
 node_modules
 npm-debug.log

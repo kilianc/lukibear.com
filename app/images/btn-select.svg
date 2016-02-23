@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="11px" viewBox="0 0 20 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>btn-select</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="guidelines-assets" sketch:type="MSArtboardGroup" transform="translate(-775.000000, -413.000000)" fill="#616161">
+            <path d="M775.293975,414.763157 L784.266406,423.708187 C784.656682,424.097271 785.28818,424.097271 785.678456,423.708187 L794.706025,414.708187 C795.097146,414.318261 795.098114,413.685096 794.708187,413.293975 C794.318261,412.902854 793.685096,412.901886 793.293975,413.291813 L784.266406,422.291813 L785.678456,422.291813 L776.706025,413.346782 C776.314904,412.956856 775.681739,412.957824 775.291813,413.348945 C774.901886,413.740066 774.902854,414.37323 775.293975,414.763157 L775.293975,414.763157 Z" id="btn-select" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

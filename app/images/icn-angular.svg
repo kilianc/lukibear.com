@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>icn-angular</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="guidelines-assets" sketch:type="MSArtboardGroup" transform="translate(-781.000000, -163.000000)">
+            <g id="icn-angular" sketch:type="MSLayerGroup" transform="translate(781.000000, 163.000000)">
+                <path d="M9.97793509,0.108757062 L0.0664052958,3.72570621 L1.63268328,17.1911977 L9.98848323,21.9533898 L18.3873148,17.1266893 L19.9529934,3.66169492 L9.97793509,0.108757062 Z" id="Shape" opacity="0.7" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M18.9643456,4.43989831 L9.95480112,1.254 L9.95480112,20.8156045 L17.5052271,16.4824746 L18.9643456,4.43989831 Z" id="Shape" opacity="0.7" fill="#4A4A4A" sketch:type="MSShapeGroup"></path>
+                <path d="M1.17863407,4.49732203 L2.52076421,16.5400226 L9.95468125,20.8156045 L9.95468125,1.25362712 L1.17863407,4.49732203 Z" id="Shape" opacity="0.7" fill="#4A4A4A" sketch:type="MSShapeGroup"></path>
+                <path d="M12.4348112,11.6675819 L9.95480112,12.8701243 L7.34090169,12.8701243 L6.11216398,16.0570169 L3.82669507,16.1008927 L9.95480112,1.96433898 L12.4348112,11.6675819 L12.4348112,11.6675819 Z M12.1950809,11.0621469 L9.97122265,6.49696045 L8.14711472,10.9835932 L9.95468125,10.9835932 L12.1950809,11.0621469 L12.1950809,11.0621469 Z" id="Shape" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M9.95468125,1.96433898 L9.97110278,6.49696045 L12.0409343,10.9870734 L9.959356,10.9870734 L9.95468125,12.8672655 L12.8330032,12.8701243 L14.1782499,16.1013898 L16.3650697,16.1434011 L9.95468125,1.96433898 Z" id="Shape" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

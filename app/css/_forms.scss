@@ -1,0 +1,25 @@
+
+/*!
+ * _forms.scss
+ * Created by Kilian Ciuffolo on Feb 15, 2016
+ * (c) 2016 lukibear https://lukibear.com
+ */
+
+input {
+  background: $color-white;
+  border: 1px solid $color-alto;
+  border-radius: 3px;
+  color: $color-chicago;
+
+  &:placeholder {
+    color: transparentize($color-chicago, 0.5);
+  }
+
+  &:focus {
+    border: 1px solid $color-havelock-blue;
+  }
+
+  &:error {
+    border: 1px solid $color-punch;
+  }
+}

@@ -1,0 +1,199 @@
+/*!
+ * _components.scss
+ * Created by Kilian Ciuffolo on Feb 17, 2016
+ * (c) 2016 lukibear https://lukibear.com
+ */
+
+section .inner-content,
+nav .inner-content,
+footer .inner-content {
+  @include outer-container($local-max-width: $breakpoint-xl);
+  padding: 0 $margin-md;
+
+  @include media(max-width $breakpoint-sm) {
+    padding: 30px;
+  }
+}
+
+@include media(max-width $breakpoint-sm) {
+  br {
+    display: none;
+  }
+}
+
+.row {
+  @include row();
+}
+
+hr {
+  height: 1px;
+  margin: 60px 0;
+  background: $color-alto;
+}
+
+.dot {
+  display: inline-block;
+  color: $color-mine-shaft;
+  font-size: 8px;
+  line-height: 8px;
+  transform: translateY(-2px);
+}
+
+.right {
+  text-align: right;
+}
+
+section {
+  padding-top: 60px;
+  padding-bottom: 80px;
+
+  h4 {
+    margin: $margin-sm auto $margin-xl;
+    max-width: 600px;
+  }
+
+  p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.icon {
+  border: 1px dotted $color-chicago;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  display: inline-block;
+  margin-right: 2px;
+
+  $icons: (
+    "angular"
+    "cordova"
+    "docker"
+    "dribbble"
+    "github"
+    "invision"
+    "linkedin"
+    "js"
+    "nodejs"
+    "react"
+    "sketch"
+    "twitter"
+  );
+
+  @each $icon in $icons {
+    &.icon-#{$icon} {
+      @include image('images/icn-#{$icon}.svg');
+    }
+  }
+}
+
+a.icon {
+  opacity: 0.7;
+}
+
+a.icon:hover {
+  opacity: 1;
+}
+
+.btn {
+  border-radius: 3px;
+  padding: 20px 40px;
+  font-family: "opensans-bold";
+  font-size: 12px;
+  line-height: 17px;
+  display: inline-block;
+  text-transform: uppercase;
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: none !important;
+  }
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-sm {
+  border-radius: 3px;
+  padding: 10px 30px;
+  font-family: "opensans-bold";
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.btn-astral {
+  background: $color-white;
+  box-shadow: 0px 2px 0px 0px transparentize($color-white, 0.5);
+  color: $color-jelly-bean;
+
+  &:hover {
+    box-shadow: 0px 2px 0px 0px transparentize($color-white, 0.6);
+    color: lighten($color-jelly-bean, 10%);
+  }
+
+  &:active {
+    box-shadow: 0px;
+    color: $color-jelly-bean;
+  }
+}
+
+.btn-picton {
+  background: $color-havelock-blue;
+  box-shadow: 0px 2px 0px 0px transparentize($color-havelock-blue, 0.5);
+  color: $color-white;
+
+  &[disabled] {
+    background: $color-havelock-blue !important;
+    box-shadow: 0px 2px 0px 0px transparentize($color-havelock-blue, 0.5) !important;
+    color: $color-white !important;
+    opacity: 0.3;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 0px 0px transparentize($color-havelock-blue, 0.4);
+    background: lighten($color-havelock-blue, 10%);
+  }
+
+  &:active {
+    box-shadow: 0px;
+    background: $color-havelock-blue;
+  }
+}
+
+.btn-rouge {
+  background: $color-white;
+  box-shadow: 0px 2px 0px 0px transparentize($color-white, 0.5);
+  color: $color-japonica;
+
+  &:hover {
+    box-shadow: 0px 2px 0px 0px transparentize($color-white, 0.6);
+    color: darken($color-japonica, 10%);
+  }
+
+  &:active {
+    box-shadow: 0px;
+    color: $color-japonica;
+  }
+}
+
+.btn-stealth {
+  background: transparent;
+  border: 1px solid $color-white;
+  color: $color-white;
+
+  &:hover {
+    background: transparentize($color-white, 0.6);
+  }
+
+  &:active {
+    background: transparent;
+  }
+}
+
+.preload {
+  position: absolute;
+  opacity: 0;
+}

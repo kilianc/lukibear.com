@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>btn-close</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="guidelines-assets" sketch:type="MSArtboardGroup" transform="translate(-732.000000, -403.000000)" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g id="btn-close" sketch:type="MSLayerGroup" transform="translate(733.000000, 404.000000)">
+                <path d="M0,0 L25.5049015,25.5049015" id="Path-1209" sketch:type="MSShapeGroup"></path>
+                <path d="M0,0 L25.5049015,25.5049015" id="Path-1209" sketch:type="MSShapeGroup" transform="translate(12.752451, 12.752451) scale(-1, 1) translate(-12.752451, -12.752451) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
