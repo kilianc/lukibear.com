@@ -11,7 +11,7 @@ var $ = require('jquery')
 function setupSlaask () {
   $(window).one('load', function () {
     /* global _slaask */
-    _slaask.init('ea305819f32b4360a3c76e157dba9624')
+    _slaask.init('d396d9113e4cd13fd5d12ade9cbc6c69')
   })
 }
 
