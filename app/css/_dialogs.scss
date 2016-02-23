@@ -1,0 +1,211 @@
+/*!
+ * _dialogs.scss
+ * Created by Kilian Ciuffolo on Feb 23, 2016
+ * (c) 2016 lukibear https://lukibear.com
+ */
+
+dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $color-white;
+  z-index: 101;
+  text-align: left;
+  display: none;
+  overflow: scroll;
+
+  .close {
+    position: absolute;
+    right: $margin-lg;
+    top: $margin-lg;
+    @include image('images/btn-close.svg');
+  }
+
+  .inner-content {
+    max-width: 600px;
+    margin: $margin-xl auto 0;
+  }
+
+  h6 {
+    margin-top: $margin-sm;
+  }
+
+  .input-text,
+  .input-textarea,
+  .input-select {
+    $height: 59px;
+
+    position: relative;
+    background: $color-white;
+    color: $color-chicago;
+    font-family: "opensans";
+    min-height: 59px;
+    margin-top: $margin-sm;
+
+    &.first {
+      margin-top: $margin-lg;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      height: $height;
+      width: 100%;
+      font-family: "opensans";
+      font-size: 15px;
+      border: 1px solid $color-alto;
+      border-radius: 3px;
+      padding: 20px;
+      transition: all 200ms ease-out;
+      resize: none;
+
+      &::placeholder {
+        color: transparentize($color-chicago, 0.5);
+      }
+
+      &.error {
+        border: 1px solid $color-punch;
+      }
+    }
+
+    input[type="submit"] {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    button {
+      float: left;
+      width: percentage(1 / 4);
+      background: none;
+      border: 0;
+      border-radius: 0;
+      border-right: 1px solid $color-alto;
+      padding-left: 0;
+      padding-right: 0;
+
+      &.selected {
+        background: $color-havelock-blue;
+        color: $color-white;
+      }
+
+      &[disabled] {
+        cursor: auto;
+        color: transparentize($color-chicago, 0.5);
+        font-family: "opensans";
+        text-transform: none;
+        font-size: 15px;
+      }
+
+      &:last-of-type {
+        border: 0;
+        border-radius: 0 3px 3px 0;
+      }
+    }
+  }
+
+  .input-textarea {
+    textarea {
+      height: 145px;
+    }
+  }
+
+  .input-select {
+    border-radius: 3px;
+    border: 1px solid $color-alto;
+  }
+
+  .thanks {
+    display: none;
+
+    p {
+      margin-bottom: $margin-lg;
+    }
+  }
+
+  .link {
+    opacity: 0.7;
+    font-family: "opensans-bold";
+    font-size: 12px;
+    color: $color-mine-shaft;
+    line-height: 17px;
+    text-transform: uppercase;
+    padding-bottom: $margin-xl;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &#contact-quick {
+    p {
+      margin-top: $margin-xl;
+    }
+  }
+
+  &#contact-full {
+    input[type="submit"] {
+      margin-top: $margin-sm;
+    }
+  }
+}
+
+@include media(max-width $breakpoint-sm) {
+  dialog {
+    .close {
+      right: $margin-md;
+      top: $margin-md;
+      transform: scale(0.6);
+    }
+
+    .inner-content {
+      margin: $margin-md auto 0;
+      padding: $margin-md;
+    }
+
+    h3 {
+      $size: 30px;
+      font-size: $size;
+      line-height: $size;
+      letter-spacing: 0px;
+    }
+
+    h4 {
+      font-size: 14px;
+      line-height: 22px;
+      margin-top: $margin-sm;
+    }
+
+    hr {
+      margin: $margin-lg 0;
+    }
+
+    .input-text,
+    .input-textarea,
+    .input-select {
+      &.first {
+        margin-top: $margin-lg;
+      }
+
+      input[type="submit"] {
+        position: static;
+        margin-top: $margin-sm;
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .link {
+      padding-bottom: $margin-lg;
+    }
+
+
+    &#contact-quick {
+      p {
+        display: none;
+      }
+    }
+  }
+}

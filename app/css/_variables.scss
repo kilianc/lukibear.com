@@ -1,0 +1,63 @@
+/*!
+ * _variables.scss
+ * Created by Kilian Ciuffolo on Jan 30, 2016
+ * (c) 2016 lukibear https://lukibear.com
+ */
+
+// **
+// fonts
+// **
+$fonts: (
+  "opensans"
+  "opensans-bold"
+  "publico-medium"
+);
+
+// **
+// colors
+// **
+$color-mine-shaft: #353537;
+$color-chicago: #616161;
+$color-alto: #E1E1E1;
+$color-seashell: #F2F2F2;
+$color-havelock-blue: #3498DB;
+$color-matisse: #2980B9;
+$color-chambray: #345192;
+$color-white: #FFFFFF;
+$color-jelly-bean: #287F9E;
+$color-olive-drab: #639A3D;
+$color-zest: #E67E22;
+$color-punch: #E74C3C;
+$color-japonica: #E88477;
+
+// **
+// gradients
+// **
+$gradient-lucky-to-wind: linear-gradient(135deg, rgba(#1A2980, 0.8) 2%, rgba(#26CFCD, 0.8) 100%);
+$gradient-violent-to-grandis: radial-gradient(circle at 0 0, #241668 0%, #682A84 28%, #D26578 52%, #FFA376 79%, #FFD08A 100%);
+$gradient-haiti-to-steel: linear-gradient(45deg, #72B7E3 0%, #52418F 66%, #290830 100%);
+$gradient-haiti-to-steel-rev: linear-gradient(-45deg, #72B7E3 0%, #52418F 66%, #290830 100%);
+$gradient-mine-to-void: linear-gradient(107deg, #353537 50%, rgba(52,52,55, 0.00) 100%);
+
+// **
+// margins
+// **
+$margin-xs: 4px;
+$margin-sm: 10px;
+$margin-md: 20px;
+$margin-lg: 40px;
+$margin-xl: 60px;
+
+// **
+// breakpoints
+// **
+$breakpoint-sm: 800px;
+$breakpoint-md: 600px;
+$breakpoint-xl: 1366px;
+$breakpoint-portfolio: $breakpoint-sm;
+
+// **
+// section paddings
+// **
+$padding-top: 60px;
+$padding-bottom: 80px;

@@ -10,11 +10,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>lukibear</title>
-  <!-- build:css(app) css/bundle.min.css -->
-  <link href="css/main.css" rel="stylesheet">
-  <link href="../node_modules/animate.css/animate.css" rel="stylesheet">
-  <!-- endbuild -->
-  <!-- favicon -->
+  <link href="bundle.min.css" rel="stylesheet">
   <link rel="icon" href="images/favicon-16.png" sizes="16x16">
   <link rel="icon" href="images/favicon-32.png" sizes="32x32">
   <link rel="icon" href="images/favicon-48.png" sizes="48x48">
@@ -22,22 +18,457 @@
   <link rel="icon" href="images/favicon-96.png" sizes="96x96">
 </head>
 <body>
-  <div class="main">
-    <h1><img src="images/logo.svg" alt="lukibear" width="78" height="110"></h1>
-    <h2>We’re busy mantaining <a href="http://rtail.org"><span>rtail.or</span>g</a> and other interesting projects.</h2>
-    <h3>Looking forward to working with us?</h3>
-    <a class="cta" href="mailto:_mail_?subject=Inquiry from lukibear.com">Let's talk</a>
-  </div>
-  <footer>
-    lukibear, LLC - 55 9th St, #911 <span>-</span>&nbsp;<br>
-    San Francisco - CA 94103 - United States
+  <nav class="top">
+    <div class="inner-content">
+      <a class="logo" href="#" data-track-id="nav-logo"></a>
+      <a class="hiring" href="#team" data-track-id="nav-hiring">we're hiring</a>
+      <div class="right">
+        <a class="link" href="#portfolio" data-track-id="nav-portfolio">portfolio</a>
+        <a class="link" href="#how-we-work" data-track-id="nav-how-we-work">how we work</a>
+        <a class="link" href="#our-offer" data-track-id="nav-our-offer">our offer</a>
+        <a class="link" href="#team" data-track-id="nav-team">team</a>
+        <span class="dot">■</span>
+        <a class="btn btn-sm" href="#contact-quick" data-track-id="nav-contact">contact us</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="inner-content">
+      <div class="logo"></div>
+      <h1>You have an idea, we have the team</h1>
+      <h2 class="light">
+        Fueling Entrepreneurs and Start-ups, we love new ideas &amp; working<br>
+        alongside creative minds. We want you to be successful.
+      </h2>
+      <a class="btn btn-astral" href="#portfolio" data-track-id="header-cta">Start your project</a>
+      <div class="scroll"></div>
+    </div>
+  </header>
+
+  <section id="portfolio">
+    <div class="inner-content">
+      <div class="portfolio-item portfolio-item-generator">
+        <div class="portfolio-item-logo"></div>
+        <div class="portfolio-item-description">
+          <h5 class="light">Adobe Generator <span>(for Photoshop)</span></h5>
+          <p class="light">
+            Generator is powered by Node.js, and provides I/O for Photoshop. You can access every bit of data in your psd, realtime, as you work, and let finally Photoshop fit into your workflow painlessly.
+          </p>
+        </div>
+        <div class="portfolio-item-art"></div>
+      </div>
+
+      <div class="portfolio-item portfolio-item-tinymce">
+        <div class="portfolio-item-logo"></div>
+        <div class="portfolio-item-description">
+          <h5 class="light">TinyMCE <span>(for Ephox)</span></h5>
+          <p class="light">
+            TinyMCE is a platform-independent web-based JavaScript/HTML WYSIWYG editor control. It’s designed to easily integrate with content management systems, including WordPress, Drupal, Joomla and Django.
+          </p>
+        </div>
+        <div class="portfolio-item-art"></div>
+      </div>
+
+      <div class="row">
+        <div class="portfolio-item portfolio-item-build portfolio-item-small hover">
+          <div class="portfolio-item-description">
+            <h5 class="light">Build <span>(for undisclosed customer)</span></h5>
+            <p class="light">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore iste, excepturi, beatae vitae atque quia qui ipsa molestiae praesentium saepe dolor quasi sapiente nostrum, tenetur veniam. Ab blanditiis, dolor id!
+            </p>
+          </div>
+          <div class="portfolio-item-overlay"></div>
+        </div>
+
+        <div class="portfolio-item portfolio-item-cancare portfolio-item-small hover">
+          <div class="portfolio-item-description">
+            <h5 class="light">Cancare <span>(for undisclosed customer)</span></h5>
+            <p class="light">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore iste, excepturi, beatae vitae atque quia qui ipsa molestiae praesentium saepe dolor quasi sapiente nostrum, tenetur veniam. Ab blanditiis, dolor id!
+            </p>
+          </div>
+          <div class="portfolio-item-overlay"></div>
+        </div>
+      </div>
+
+      <div class="portfolio-item portfolio-item-rtail">
+        <div class="portfolio-item-logo"></div>
+        <div class="portfolio-item-description">
+          <h5 class="light">rtail <span>(Open Source Project)</span></h5>
+          <p class="light">
+            rtail is a command line utility that grabs every line in stdin and broadcasts it over UDP. That's it. Nothing fancy. Nothing complicated. Tail log files, app output, or whatever you wish, using rtail broadcasting to an rtail-server. See multiple streams in the browser, in realtime.
+          </p>
+        </div>
+        <div class="portfolio-item-art"></div>
+      </div>
+
+      <div class="row">
+        <div class="portfolio-item portfolio-item-careers portfolio-item-small hover">
+          <div class="portfolio-item-description">
+            <h5 class="light">Careers <span>(for undisclosed customer)</span></h5>
+            <p class="light">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore iste, excepturi, beatae vitae atque quia qui ipsa molestiae praesentium saepe dolor quasi sapiente nostrum, tenetur veniam. Ab blanditiis, dolor id!
+            </p>
+          </div>
+          <div class="portfolio-item-overlay"></div>
+        </div>
+
+        <div class="portfolio-item portfolio-item-nodeinteractive portfolio-item-small">
+          <div class="portfolio-item-logo"></div>
+          <div class="portfolio-item-description">
+            <h5 class="light">Node.js Interactive <span>(Portlan OR)</span></h5>
+            <p class="light">
+              Have a look at our speech, or drop us a line if you’d like us to attend another conference.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="dark">
+        We will talk to you about your product vision and decide with you if we are a good fit for your project. If we are, we’ll send you a project estimate for your review. Then we’ll pick the right designer or development team and will get started working on your product’s vision right away.
+      </p>
+
+      <a class="btn btn-picton" href="#contact-quick" data-track-id="portfolio-cta">Let’s discuss your project</a>
+    <div>
+  </section>
+
+  <section id="how-we-work">
+    <div class="inner-content">
+      <h3 class="light">Get on the market in 30 to 60 days</h3>
+      <h4 class="light">
+        We iterate early and often so that you get data-driven results instantly. Most of our MVPs can be built in 1-3 months cycles. We specialize in giving start-ups excellent app usability, product validation advice, and agile development.
+      </h4>
+      <div class="graph"></div>
+      <p class="light">
+        Using our experience gained over years of Agile development, we will help you build and improve your MVP (minimum viable product).<br>
+        The success of your product is our success as well. You can count on our recommendations and advice from day one.
+      </p>
+      <a class="btn btn-rouge" href="#contact-quick" data-track-id="how-we-work-cta">Let’s work together</a>
+    </div>
+  </section>
+
+  <section id="our-offer">
+    <div class="inner-content">
+      <h3 class="dark">Our offer and technologies</h3>
+      <h4 class="dark">
+        We iterate early and often so that you get data-driven results instantly. Most of our MVPs can be built in 1-3 months cycles. We specialize in giving start-ups excellent app usability, product validation advice, and agile development.
+      </h4>
+
+      <div class="our-offer-item our-offer-ux-ui">
+        <img class="our-offer-item-image" src="images/img-ux-ui.svg">
+        <div class="our-offer-item-description">
+          <div>
+            <h5 class="dark">UX &amp; UI Prototyping</h5>
+            <p class="dark">
+              We’re a design driven app development company. Our designers will create beatuful prototypes that you can share get feedback and comment on.
+            </p>
+            <div class="icon icon-invision"></div>
+            <div class="icon icon-sketch"></div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="our-offer-item our-offer-web-apps reverse">
+        <img class="our-offer-item-image" src="images/img-web-app.svg">
+        <div class="our-offer-item-description">
+          <div>
+            <h5 class="dark">Web Applications</h5>
+            <p class="dark">
+              Our developers leverage web technologies that will save a lot of time and target multiple platforms with little to no effort.
+            </p>
+            <div class="icon icon-js"></div>
+            <div class="icon icon-react"></div>
+            <div class="icon icon-angular"></div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="our-offer-item our-offer-mobile-apps">
+        <img class="our-offer-item-image" src="images/img-mobile-app.svg">
+        <div class="our-offer-item-description">
+          <div>
+            <h5 class="dark">Mobile Apps</h5>
+            <p class="dark">
+              We are Javascript at heart, with Node.js we can push and ES6. We write test driven code and we use modern tooling to deliver the best.
+            </p>
+            <div class="icon icon-js"></div>
+            <div class="icon icon-cordova"></div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="our-offer-item our-offer-api reverse">
+        <img class="our-offer-item-image" src="images/img-api.svg">
+        <div class="our-offer-item-description">
+          <div>
+            <h5 class="dark">Restful API</h5>
+            <p class="dark">
+              We are Javascript at heart, with Node.js we can push and ES6. We write test driven code and we use modern tooling to deliver the best.
+            </p>
+            <div class="icon icon-nodejs"></div>
+            <div class="icon icon-docker"></div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <p class="dark">
+        We will talk to you about your product vision and decide with you if we are a good fit for your project. If we are, we’ll send you a project estimate for your review. Then we’ll pick the right designer or development team and will get started working on your product’s vision right away.
+      </p>
+
+      <a class="btn btn-picton" href="#contact-quick" data-track-id="our-offer-cta">Talk to a Specialist</a>
+    </div>
+  </section>
+
+  <section id="philosophy">
+    <h3 class="light">Our team becomes your team</h3>
+    <h4 class="light">
+      We will provide a dedicated team without the hassle of hiring the right people. We’re built on open source and our team members are core developers of a range of open source projects.
+    </h4>
+    <div class="philosophy-gradient"></div>
+    <div class="video-poster"></div>
+    <video autoplay loop src="videos/earth.mp4"></video>
+  </section>
+
+  <section id="team">
+    <div class="inner-content">
+      <h3 class="dark">Meet our team</h3>
+      <h4 class="dark">
+        lukibear team is geographically distributed and has different backgrounds. We’re a small and agile team, and we move fast. Here’s a list of our employees, collaborators and contractors.
+      </h4>
+
+      <div class="team-members">
+        <div class="team-member">
+          <div class="team-member-headshot kilian"></div>
+          <h5 class="dark">Kilian Ciuffolo</h5>
+          <p class="dark serious">Managing Partner / Co-Founder</p>
+          <p class="dark funny">5D Book Shelf</p>
+          <div class="team-member-links">
+            <a class="icon icon-linkedin" href="https://www.linkedin.com/in/kilianciuffolo" data-track-id="kilian-linkedin"></a>
+            <a class="icon icon-github" href="https://github.com/kilianc" data-track-id="kilian-github"></a>
+            <a class="icon icon-twitter" href="https://twitter.com/kilianciuffolo" data-track-id="kilian-twitter"></a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-member-headshot luca"></div>
+          <h5 class="dark">Luca Orio</h5>
+          <p class="dark serious">Managing Partner / Co-Founder</p>
+          <p class="dark funny">Va bòn!</p>
+          <div class="team-member-links">
+            <a class="icon icon-linkedin" href="https://www.linkedin.com/in/lucaorio" data-track-id="luca-linkedin"></a>
+            <a class="icon icon-dribbble" href="https://dribbble.com/lucaorio" data-track-id="luca-dribbble"></a>
+            <a class="icon icon-twitter" href="https://twitter.com/lucaorio_" data-track-id="luca-twitter"></a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-member-headshot kieran"></div>
+          <h5 class="dark">Kieran Black</h5>
+          <p class="dark serious">Designer</p>
+          <p class="dark funny">Lord Emperor</p>
+          <div class="team-member-links">
+            <a class="icon icon-twitter" href="https://twitter.com/kieranpblack" data-track-id="kieran-twitter"></a>
+            <a class="icon icon-dribbble" href="https://dribbble.com/kieranpblack" data-track-id="kieran-dribbble"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-members">
+        <div class="team-member">
+          <div class="team-member-headshot mittie">MS</div>
+          <h5 class="dark">Mittie Stephens</h5>
+          <p class="dark">Sales / Account Executive</p>
+          <div class="team-member-links">
+            <a class="icon icon-linkedin" href="https://www.linkedin.com/in/mrstechsalespro" data-track-id="mittie-linkedin"></a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-member-headshot hiring-01"></div>
+          <h5 class="dark">We're hiring</h5>
+          <p class="dark">Node.js JavaScript Developer</p>
+          <a class="btn btn-sm btn-picton" href="mailto:info@lukibear.com" data-track-id="team-nodejs-apply">apply</a>
+        </div>
+
+        <div class="team-member">
+          <div class="team-member-headshot hiring-02"></div>
+          <h5 class="dark">We're hiring</h5>
+          <p class="dark">Frontend JavaScript Developer</p>
+          <a class="btn btn-sm btn-picton" href="mailto:info@lukibear.com" data-track-id="team-frontend-apply">apply</a>
+        </div>
+      </div>
+
+      <hr>
+    </div>
+
+    <div class="inner-content">
+      <p class="dark">
+        Is there any open position that catch your eye? You can work with us, it doesn’t matter where you are: we trust and advocate remote working.<br>
+        Coffee shops, co-working spaces, private offices, beaches…<br>
+        You choose your environment.
+      </p>
+
+      <div class="environment first">
+        <div class="environment-apple">
+          <h5 class="dark">Apple User</h5>
+          <p class="dark">
+            On the same page, we work better (For devops, Linux works, too).
+          </p>
+        </div>
+
+        <div class="environment-slack">
+          <h5 class="dark">Slack Friendly</h5>
+          <p class="dark">
+            Our day-to-day communication is on Slack. No emails.
+          </p>
+        </div>
+      </div>
+
+      <div class="environment">
+        <div class="environment-remote">
+          <h5 class="dark">Global Thinker</h5>
+          <p class="dark">
+            We encourage and support distributed, remote working teams.
+          </p>
+        </div>
+
+        <div class="environment-learner">
+          <h5 class="dark">Unstoppable learner</h5>
+          <p class="dark">
+            If you have bleeding edge technologies at heart, you’re one of us.
+          </p>
+        </div>
+      </div>
+
+      <a class="btn btn-picton" href="mailto:info@lukibear.com" data-track-id="team-apply">Want to join us</a>
+    </div>
+  </section>
+
+  <section id="brag">
+    <div class="inner-content">
+      <h3 class="dark">Trusted by industry leaders</h3>
+      <div class="brag-customers">
+        <div class="brag-customers-adobe"></div>
+        <div class="brag-customers-ephox"></div>
+      </div>
+      <p class="dark">
+        We give our clients the advantage of open source technologies. By building on existing, trusted, open projects, they launch faster and with less risk. Contact us to find out more or take a look at our own open source projects.
+      </p>
+      <a class="btn btn-picton" href="#contact-quick" data-track-id="brag-cta">Tell us about your idea</a>
+    </div>
+  </section>
+
+  <footer class="xl">
+    <div class="inner-content">
+      <div class="logo"></div>
+      <p class="light">Copyright © 2016 lukibear, LLC | 55 9th St #911 | San Francisco, CA, 94103 | United States</p>
+      <div class="right">
+        <a class="link" href="https://www.iubenda.com/privacy-policy/763237/legal">Privacy</a>
+        <span class="dot">■</span>
+        <a class="btn btn-sm btn-stealth" href="#contact-quick" data-track-id="footer-cta">Contact us</a>
+      </div>
+    </div>
   </footer>
-  <!-- build:js(app) scripts/bundle.min.js -->
-  <script src="../node_modules/socket.io-client/socket.io.js"></script>
-  <script src="../node_modules/jquery/dist/jquery.js"></script>
-  <script src="scripts/ga.js"></script>
-  <script src="scripts/mixpanel.js"></script>
-  <script src="scripts/app.js"></script>
-  <!-- endbuild -->
+
+  <footer class="sm">
+    <div class="inner-content">
+      <a class="btn btn-stealth" href="#contact-quick" data-track-id="footer-cta">Contact us</a>
+      <a class="link" href="https://www.iubenda.com/privacy-policy/763237/legal">Privacy</a>
+      <p class="light">Copyright © 2016 lukibear, LLC | 55 9th St #911 | San Francisco, CA, 94103 | United States</p>
+      <div class="logo"></div>
+    </div>
+  </footer>
+
+  <div class="preload-images"></div>
+
+  <dialog id="contact-quick">
+    <div class="inner-content">
+      <button class="close"></button>
+      <form name="contact-quick-form">
+        <h3 class="dark">We value your time...</h3>
+        <h4 class="dark">
+          Let us know your email or phone number: based on your timezone,<br>
+          our staff will get in touch within zero-to-six hours.
+        </h4>
+
+        <div class="input-text first">
+          <input type="text" name="contact" placeholder="Email or phone number">
+          <input class="btn btn-picton" type="submit">
+        </div>
+
+        <p class="dark sm">
+          "My favorite things in life don't cost any money. It's really clear that the most precious resource we all have is time." - Steve Jobs
+        </p>
+
+        <hr>
+
+        <a class="link" href="mailto:info@lukibear.com" data-track-id="contact-quick-plain-email">Do you still want to send us a “normal” email?</a>
+      </form>
+
+      <div class="thanks">
+        <h3 class="dark">Request sent succesfully!</h3>
+        <p>Would you like to provide us some other details?</p>
+        <a class="btn btn-picton" href="#contact-full" data-track-id="contact-quick-more-details">Add more details</a>
+        <button class="btn btn-astral btn-close">No thanks</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="contact-full">
+    <div class="inner-content">
+      <button class="close"></button>
+      <form name="contact-full-form">
+        <h3 class="dark">Nice to meet you!</h3>
+        <h4 class="dark">
+          Let us know your idea, or how we can help you. If the project should be part of an NDA agreement, please don’t disclose any detailed information about it.
+        </h4>
+
+        <div class="input-text first">
+          <input type="text" name="name" placeholder="Name">
+        </div>
+
+        <div class="input-text">
+          <input type="text" name="contact" placeholder="Email or phone number">
+        </div>
+
+        <div class="input-select">
+          <button class="btn btn-astral" disabled="disabled">Budget:</button>
+          <button class="btn btn-astral">$48,000</button>
+          <button class="btn btn-astral">$96,000</button>
+          <button class="btn btn-astral selected">$144,000</button>
+          <input type="hidden" name="budget" value="$144,000">
+        </div>
+
+        <div class="input-textarea">
+          <textarea name="info" placeholder="A tweet sized description of your project"></textarea>
+        </div>
+
+        <input class="btn btn-full btn-picton" type="submit">
+
+        <hr>
+
+        <a class="link" href="#contact-quick" data-track-id="contact-full-back-to-quick">Do you want to be contacted without filling out too many fields?</a>
+      </form>
+
+      <div class="thanks">
+        <h3 class="dark">Request sent succesfully!</h3>
+        <p>Well'be in touch shortly</p>
+        <button class="btn btn-picton btn-close">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="bundle.min.js"></script>
+  <script src="https://www.google-analytics.com/analytics.js"></script>
+  <script src="https://cdn.slaask.com/chat.js"></script>
 </body>
 </html>

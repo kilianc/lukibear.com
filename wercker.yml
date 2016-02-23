@@ -1,11 +1,11 @@
-box: kilianciuffolo/wercker:4.2.2
+box: kilianciuffolo/wercker:5.6.0
 
 build:
   steps:
     - npm-install
     - script:
         name: gulp build
-        code: node_modules/.bin/gulp build:dist
+        code: $(npm bin)/gulp build:dist
 
 deploy:
   steps:

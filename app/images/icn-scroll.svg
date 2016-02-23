@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>icn-scroll</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="guidelines-assets-mobile" sketch:type="MSArtboardGroup" transform="translate(-443.000000, -151.000000)" fill="#FFFFFF">
+            <g id="icn-scroll" sketch:type="MSLayerGroup" transform="translate(443.000000, 151.000000)">
+                <path d="M19,36 L19,36 C28.3888407,36 36,28.3888407 36,19 C36,9.61115925 28.3888407,2 19,2 C9.61115925,2 2,9.61115925 2,19 C2,28.3888407 9.61115925,36 19,36 L19,36 Z M19,38 L19,38 C8.50658975,38 0,29.4934102 0,19 C0,8.50658975 8.50658975,0 19,0 C29.4934102,0 38,8.50658975 38,19 C38,29.4934102 29.4934102,38 19,38 L19,38 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                <path d="M9.29397541,16.7631568 L18.2664065,25.7081873 C18.6566819,26.0972709 19.2881802,26.0972709 19.6784557,25.7081873 L28.7060246,16.7081873 C29.0971457,16.3182607 29.0981139,15.6850965 28.7081873,15.2939754 C28.3182607,14.9028544 27.6850965,14.9018861 27.2939754,15.2918127 L18.2664065,24.2918127 L19.6784557,24.2918127 L10.7060246,15.3467822 C10.3149036,14.9568556 9.68173932,14.9578239 9.2918127,15.3489449 C8.90188608,15.740066 8.90285436,16.3732302 9.29397541,16.7631568 L9.29397541,16.7631568 Z" id="arrow" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

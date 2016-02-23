@@ -1,0 +1,141 @@
+/*!
+ * _typography.scss
+ * Created by Kilian Ciuffolo on Feb 15, 2016
+ * (c) 2016 lukibear https://lukibear.com
+ */
+
+@import "variables";
+
+// **
+// font families
+// **
+
+@each $font in $fonts {
+  @include font-face($font, "fonts/#{$font}", $file-formats: eot ttf woff);
+}
+
+// **
+// text elements
+// **
+
+h1 {
+  font-family: "publico-medium";
+  font-size: 54px;
+  line-height: 65px;
+  letter-spacing: -2px;
+
+  &.light {
+    color: $color-white;
+  }
+
+  &.light {
+    color: $color-mine-shaft;
+  }
+
+  @include media(max-width $breakpoint-sm) {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+
+h2 {
+  font-family: "opensans";
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: -0.5px;
+
+  &.light {
+    color: $color-white;
+  }
+
+  &.dark {
+    color: $color-chicago;
+  }
+
+  @include media(max-width $breakpoint-sm) {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+h3 {
+  font-family: "publico-medium";
+  font-size: 44px;
+  line-height: 53px;
+  letter-spacing: -1.5px;
+
+  &.light {
+    color: $color-white;
+  }
+
+  &.dark {
+    color: $color-mine-shaft;
+  }
+}
+
+h4 {
+  font-family: "opensans";
+  font-size: 18px;
+  line-height: 26px;
+
+  &.light {
+    color: $color-white;
+  }
+
+  &.dark {
+    color: $color-chicago;
+  }
+}
+
+h5 {
+  font-family: "publico-medium";
+  font-size: 27px;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+
+  &.light {
+    color: $color-white;
+  }
+
+  &.dark {
+    color: $color-mine-shaft;
+  }
+
+  span {
+    font-family: "opensans";
+    font-size: 12px;
+    line-height: 17px;
+
+    &.light {
+      color: $color-white;
+    }
+
+    &.dark {
+      color: $color-chicago;
+    }
+  }
+}
+
+p {
+  font-family: "opensans";
+  font-size: 15px;
+  line-height: 24px;
+
+  &.light {
+    color: $color-white;
+  }
+
+  &.dark {
+    color: $color-chicago;
+  }
+
+  &.sm {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  @include media(max-width $breakpoint-sm) {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
