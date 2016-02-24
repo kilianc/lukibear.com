@@ -797,8 +797,6 @@ footer.sm {
 
 @import "dialogs";
 
-#slaask-button {
-  @include media(max-width $breakpoint-sm) {
-    display: none;
-  }
+#slaask-widget-container {
+  text-align: left;
 }
