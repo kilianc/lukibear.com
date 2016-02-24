@@ -392,6 +392,7 @@ header {
 
   .graph {
     @include image('images/img-graph.svg');
+    height: 387px;
     width: 100%;
     background-size: contain;
 
