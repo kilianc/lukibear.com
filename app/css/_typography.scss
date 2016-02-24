@@ -18,11 +18,14 @@
 // text elements
 // **
 
+b {
+  font-family: "opensans-bold"
+}
+
 h1 {
   font-family: "publico-medium";
   font-size: 54px;
   line-height: 65px;
-  letter-spacing: -2px;
 
   &.light {
     color: $color-white;
