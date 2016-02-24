@@ -22,6 +22,12 @@ footer .inner-content {
   }
 }
 
+.anchor {
+  position: relative;
+  top: -77px;
+  display: block;
+}
+
 .row {
   @include row();
 }

@@ -154,7 +154,7 @@ header {
   }
 }
 
-#portfolio {
+.portfolio {
   $height: 370px;
 
   padding-top: $margin-md;
@@ -386,7 +386,7 @@ header {
   }
 }
 
-#how-we-work {
+.how-we-work {
   background-image: $gradient-violent-to-grandis;
   background-position: top left;
   overflow: hidden;
@@ -408,7 +408,7 @@ header {
   }
 }
 
-#our-offer {
+.our-offer {
   .inner-content {
     max-width: 680px;
   }
@@ -468,7 +468,7 @@ header {
   }
 }
 
-#philosophy {
+.philosophy {
   position: relative;
   padding-top: 130px;
   background-color: black;
@@ -524,7 +524,7 @@ header {
   }
 }
 
-#team {
+.team {
   .inner-content {
     max-width: 800px;
   }
@@ -667,7 +667,7 @@ header {
   }
 }
 
-#brag {
+.brag {
   background: $color-seashell;
 
   .brag-customers {
