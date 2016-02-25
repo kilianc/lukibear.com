@@ -109,6 +109,12 @@ gulp.task('copy:videos', () => {
     .pipe(gulp.dest('dist/videos'))
 })
 
+gulp.task('copy:maps', () => {
+  return gulp.src('app/**/*.map')
+    .pipe(gulp.dest('release'))
+})
+
+
 gulp.task('minify:images', function () {
   return gulp.src('app/images/**/*')
     .pipe(plugins.imagemin({
@@ -196,7 +202,10 @@ gulp.task('build:release', (done) => {
       'build:dist',
       'clean:release'
     ],
-    'revisions',
+    [
+      'copy:maps',
+      'revisions'
+    ],
     done
   )
 })
