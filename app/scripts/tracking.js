@@ -10,12 +10,6 @@ var $ = require('jquery')
 var mixpanel = require('mixpanel-browser')
 
 function setupTracking () {
-  // init google analytics
-  /* global ga */
-  ga('create', 'UA-64479821-1', 'auto')
-  ga('send', 'pageview')
-  exports.ga = ga
-
   // init mixpanel
   mixpanel.init('19c6e5ecadfd02735d072f11d7bc5cdb')
   mixpanel.track('page-view')
@@ -27,7 +21,20 @@ function setupTracking () {
       label: $(this).val()
     })
   })
+
+  // inspectlet
+  window.__insp = window.__insp || []
+  window.__insp.push(['wid', 2147080968])
+
+  // init google analytics
+  var ga = window.ga = function () {
+    ga.q = [arguments]
+  }
+  ga.l = 1 * new Date()
+  ga('create', 'UA-64479821-1', 'auto')
+  ga('send', 'pageview')
 }
 
 exports.mixpanel = mixpanel
 exports.setupTracking = setupTracking
+exports.ga = window.ga
