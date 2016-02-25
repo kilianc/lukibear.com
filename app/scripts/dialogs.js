@@ -1,5 +1,5 @@
 /*!
- * dialogs.sj
+ * dialogs.js
  * Created by Kilian Ciuffolo on Feb 23, 2016
  * (c) 2016 lukibear https://lukibear.com
  */

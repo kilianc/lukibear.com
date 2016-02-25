@@ -6,6 +6,9 @@
 
 'use strict'
 
+/* global Bugsnag */
+Bugsnag.releaseStage = process.env.NODE_ENV
+
 var setupContactDialogs = require('./dialogs')
 var setupForms = require('./forms')
 var setupNav = require('./nav')

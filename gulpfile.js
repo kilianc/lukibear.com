@@ -13,6 +13,7 @@ const del = require('del')
 const neat = require('node-neat').includePaths
 const pngquant = require('imagemin-pngquant')
 const browserify = require('browserify')
+const envify = require('envify/custom')
 const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
 const express = require('express')
@@ -77,6 +78,7 @@ gulp.task('js', () => {
     entries: 'app/scripts/main.js',
     debug: true
   })
+    .transform(envify())
     .bundle()
     .pipe(source('bundle.min.js'))
     .pipe(buffer())
@@ -119,7 +121,9 @@ gulp.task('minify:images', function () {
 
 gulp.task('minify:js', () => {
   return gulp.src('app/bundle.min.js')
+    .pipe(plugins.sourcemaps.init({ loadMaps: true }))
     .pipe(plugins.uglify())
+    .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('dist'))
 })
 
