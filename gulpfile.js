@@ -29,6 +29,10 @@ gulp.task('clean:dist', (done) => {
   return del('dist')
 })
 
+gulp.task('clean:release', (done) => {
+  return del('release')
+})
+
 gulp.task('clean:css', () => {
   return del('app/bundle.min.css*')
 })
@@ -42,7 +46,7 @@ gulp.task('clean:app', (done) => {
 })
 
 gulp.task('clean', (done) => {
-  run(['clean:dist', 'clean:app'], done)
+  run(['clean:dist', 'clean:app', 'clean:release'], done)
 })
 
 gulp.task('clean:npm', (done) => {
@@ -79,6 +83,18 @@ gulp.task('js', () => {
     .pipe(plugins.sourcemaps.init({ loadMaps: true }))
     .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest('app'))
+})
+
+gulp.task('revisions', function () {
+  var ignore = ['.html', /fonts/]
+  var revAll = new plugins.revAll({ // eslint-disable-line
+    dontRenameFile: ignore,
+    dontUpdateReference: ignore
+  })
+
+  return gulp.src('dist/**')
+    .pipe(revAll.revision())
+    .pipe(gulp.dest('release'))
 })
 
 gulp.task('copy:fonts', () => {
@@ -156,7 +172,29 @@ gulp.task('build:app', (done) => {
 })
 
 gulp.task('build:dist', (done) => {
-  run(['build:app', 'clean:dist'], 'copy:fonts', 'copy:videos', 'minify', done)
+  run(
+    [
+      'build:app',
+      'clean:dist'
+    ],
+    [
+      'copy:fonts',
+      'copy:videos',
+      'minify'
+    ],
+    done
+  )
 })
 
-gulp.task('default', ['build:dist'])
+gulp.task('build:release', (done) => {
+  run(
+    [
+      'build:dist',
+      'clean:release'
+    ],
+    'revisions',
+    done
+  )
+})
+
+gulp.task('default', ['build:release'])

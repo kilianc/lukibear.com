@@ -4,8 +4,8 @@ build:
   steps:
     - npm-install
     - script:
-        name: gulp build
-        code: $(npm bin)/gulp build:dist
+        name: gulp
+        code: $(npm bin)/gulp
 
 deploy:
   steps:

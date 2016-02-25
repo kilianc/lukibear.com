@@ -6,3 +6,4 @@ app/bundle.min.js*
 dist
 node_modules
 npm-debug.log
+release

@@ -7,4 +7,4 @@ RUN npm install && npm cache clean
 
 COPY . ./
 RUN $(npm bin)/gulp
-CMD ["dist", "-c604800"]
+CMD ["release", "-c31536000"]
