@@ -1,5 +1,7 @@
-FROM kilianciuffolo/http-server:5.5.0
+FROM kilianciuffolo/http-server:5.6.0
 MAINTAINER kilian@lukibear.com
+
+ARG NODE_ENV=development
 
 WORKDIR /website
 COPY package.json ./

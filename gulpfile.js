@@ -26,6 +26,8 @@ if (semver.lt(process.version, NODE_VERSION)) {
   process.exit(1)
 }
 
+plugins.util.log('Using NODE_ENV="%s"', process.env.NODE_ENV)
+
 gulp.task('clean:dist', (done) => {
   return del('dist')
 })
@@ -113,7 +115,6 @@ gulp.task('copy:maps', () => {
   return gulp.src('app/**/*.map')
     .pipe(gulp.dest('release'))
 })
-
 
 gulp.task('minify:images', function () {
   return gulp.src('app/images/**/*')
