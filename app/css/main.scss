@@ -124,6 +124,10 @@ header {
   color: $color-white;
   text-align: center;
 
+  h1 {
+    margin-bottom: 10px;
+  }
+
   .logo {
     display: none;
     margin: 0 auto $margin-lg;
