@@ -11,8 +11,14 @@ var mixpanel = require('mixpanel-browser')
 
 function setupTracking () {
   // init mixpanel
-  mixpanel.init('19c6e5ecadfd02735d072f11d7bc5cdb')
-  mixpanel.track('page-view')
+  if (process.env.NODE_ENV === 'production') {
+    mixpanel.init('19c6e5ecadfd02735d072f11d7bc5cdb')
+    mixpanel.track('page-view')
+  } else {
+    mixpanel.track = function () {}
+    mixpanel.identify = function () {}
+    mixpanel.people = { set: function () {} }
+  }
 
   // track clicks
   $('[data-track-id]').on('click', function () {
@@ -24,15 +30,21 @@ function setupTracking () {
 
   // inspectlet
   window.__insp = window.__insp || []
-  window.__insp.push(['wid', 2147080968])
+  if (process.env.NODE_ENV === 'production') {
+    window.__insp.push(['wid', 2147080968])
+  }
 
   // init google analytics
-  var ga = window.ga = function () {
-    ga.q = [arguments]
+  if (process.env.NODE_ENV === 'production') {
+    var ga = window.ga = function () {
+      ga.q = [arguments]
+    }
+    ga.l = 1 * new Date()
+    ga('create', 'UA-64479821-1', 'auto')
+    ga('send', 'pageview')
+  } else {
+    window.ga = function () {}
   }
-  ga.l = 1 * new Date()
-  ga('create', 'UA-64479821-1', 'auto')
-  ga('send', 'pageview')
 }
 
 exports.mixpanel = mixpanel

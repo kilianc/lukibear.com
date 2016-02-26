@@ -72,6 +72,8 @@ function validateContactFullForm () {
 function onFormSubmit (e) {
   e.preventDefault()
 
+  var $form = $(this)
+  var $dialog = $form.closest('dialog')
   var contact = $('input[name="contact"]').val()
   var name = $('input[name="name"]').val()
   var budget = $('input[name="budget"]').val()
@@ -84,7 +86,7 @@ function onFormSubmit (e) {
   }
 
   mixpanel.identify(contact)
-  mixpanel.track('contact', { type: 'full' })
+  mixpanel.track('contact', { type: $dialog.attr('id').replace('contact-', '') })
   mixpanel.people.set({
     $name: name,
     $phone: phone,
@@ -93,8 +95,8 @@ function onFormSubmit (e) {
     budget: budget
   })
 
-  $(this).css('display', 'none')
-  $(this).parent().find('.thanks').css('display', 'block')
+  $form.css('display', 'none')
+  $dialog.find('.thanks').css('display', 'block')
 }
 
 function setupForms () {
