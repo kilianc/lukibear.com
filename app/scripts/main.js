@@ -8,6 +8,7 @@
 
 /* global Bugsnag */
 Bugsnag.releaseStage = process.env.NODE_ENV
+Bugsnag.notifyReleaseStages = ['staging', 'production']
 
 var setupContactDialogs = require('./dialogs')
 var setupForms = require('./forms')
