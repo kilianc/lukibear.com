@@ -6,7 +6,7 @@
 
 'use strict'
 
-var $ = require('jquery')
+const $ = require('jquery')
 
 function closeAllDialogs () {
   $('body').css('overflow', '')
@@ -18,15 +18,15 @@ function closeAllDialogs () {
 function openDialog (name) {
   closeAllDialogs()
   $('body').css('overflow', 'hidden')
-  $('#' + name).css('display', 'block')
+  $(`#${name}`).css('display', 'block')
 }
 
 function setupContactDialogs () {
-  $('a[href="#contact-quick"]').on('click', function () {
+  $('a[href="#contact-quick"]').on('click', () => {
     openDialog('contact-quick')
   })
 
-  $('a[href="#contact-full"]').on('click', function () {
+  $('a[href="#contact-full"]').on('click', () => {
     openDialog('contact-full')
   })
 
@@ -34,16 +34,16 @@ function setupContactDialogs () {
 
   $('.btn-close').on('click', closeAllDialogs)
 
-  $('.input-select button').on('click', function (e) {
+  $('.input-select button').on('click', (e) => {
     e.preventDefault()
-    var $this = $(this)
-    var $input = $this.siblings('input[type="hidden"]')
-    $this.siblings('button').removeClass('selected')
-    $this.addClass('selected')
-    $input.val($this.text())
+    var $button = $(e.currentTarget)
+    var $input = $button.siblings('input[type="hidden"]')
+    $button.siblings('button').removeClass('selected')
+    $button.addClass('selected')
+    $input.val($button.text())
   })
 
-  $(document).keyup(function (e) {
+  $(document).keyup((e) => {
     if (e.keyCode !== 27) return
     closeAllDialogs()
   })

@@ -6,10 +6,10 @@
 
 'use strict'
 
-var $ = require('jquery')
-var isValidEmail = require('email-validator').validate
-var phoneFormatter = require('phone')
-var mixpanel = require('./tracking').mixpanel
+const $ = require('jquery')
+const isValidEmail = require('email-validator').validate
+const phoneFormatter = require('phone')
+const mixpanel = require('./tracking').mixpanel
 
 function isValidPhone (s) {
   return !!phoneFormatter(s).length
@@ -20,9 +20,9 @@ function isValidContact (s) {
 }
 
 function validateContactField ($form) {
-  var $field = $form.find('input[name="contact"]')
-  var value = $field.val()
-  var isValid = isValidContact(value)
+  let $field = $form.find('input[name="contact"]')
+  let value = $field.val()
+  let isValid = isValidContact(value)
 
   if (!isValid && value) {
     $field.addClass('error')
@@ -34,9 +34,9 @@ function validateContactField ($form) {
 }
 
 function validateNameField ($form) {
-  var $field = $form.find('input[name="name"]')
-  var value = $field.val()
-  var isValid = !!value
+  let $field = $form.find('input[name="name"]')
+  let value = $field.val()
+  let isValid = !!value
 
   if (!isValid && value) {
     $field.addClass('error')
@@ -48,8 +48,8 @@ function validateNameField ($form) {
 }
 
 function validateContactQuickForm () {
-  var $form = $('#contact-quick form')
-  var $submit = $('input[type="submit"]')
+  let $form = $('#contact-quick form')
+  let $submit = $('input[type="submit"]')
 
   if (validateContactField($form)) {
     $submit.attr('disabled', null)
@@ -59,8 +59,8 @@ function validateContactQuickForm () {
 }
 
 function validateContactFullForm () {
-  var $form = $('#contact-full form')
-  var $submit = $form.find('input[type="submit"]')
+  let $form = $('#contact-full form')
+  let $submit = $form.find('input[type="submit"]')
 
   if (validateContactField($form) && validateNameField($form)) {
     $submit.attr('disabled', null)
@@ -72,14 +72,14 @@ function validateContactFullForm () {
 function onFormSubmit (e) {
   e.preventDefault()
 
-  var $form = $(this)
-  var $dialog = $form.closest('dialog')
-  var contact = $('input[name="contact"]').val()
-  var name = $('input[name="name"]').val()
-  var budget = $('input[name="budget"]').val()
-  var info = $('textarea[name="info"]').val()
-  var phone = phoneFormatter(contact)[0]
-  var email = isValidEmail(contact) ? contact : ''
+  let $form = $(this)
+  let $dialog = $form.closest('dialog')
+  let contact = $('input[name="contact"]').val()
+  let name = $('input[name="name"]').val()
+  let budget = $('input[name="budget"]').val()
+  let info = $('textarea[name="info"]').val()
+  let phone = phoneFormatter(contact)[0]
+  let email = isValidEmail(contact) ? contact : ''
 
   if (phone) {
     contact = phone[0]

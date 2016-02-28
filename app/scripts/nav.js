@@ -6,14 +6,14 @@
 
 'use strict'
 
-var $ = require('jquery')
+const $ = require('jquery')
 
 function setupNav () {
-  var $menu = $('nav')
-  var $window = $(window)
+  let $menu = $('nav')
+  let $window = $(window)
 
   // switch menu class
-  $window.on('scroll', function (e) {
+  $window.on('scroll', (e) => {
     if ($window.scrollTop() <= 0) {
       if ($menu.atTop) return
       $menu.atTop = true

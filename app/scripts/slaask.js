@@ -6,11 +6,10 @@
 
 'use strict'
 
-var $ = require('jquery')
+const $ = require('jquery')
 
 function setupSlaask () {
-  $(window).one('load', function () {
-    /* global _slaask */
+  $(window).one('load', () => {
     _slaask.init('d396d9113e4cd13fd5d12ade9cbc6c69')
   })
 }

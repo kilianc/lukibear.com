@@ -6,6 +6,7 @@
 
 'use strict'
 
+const join = require('path').join
 const gulp = require('gulp')
 const run = require('run-sequence')
 const plugins = require('gulp-load-plugins')()
@@ -13,7 +14,6 @@ const del = require('del')
 const neat = require('node-neat').includePaths
 const pngquant = require('imagemin-pngquant')
 const browserify = require('browserify')
-const envify = require('envify/custom')
 const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
 const express = require('express')
@@ -80,7 +80,8 @@ gulp.task('js', () => {
     entries: 'app/scripts/main.js',
     debug: true
   })
-    .transform(envify())
+    .transform('babelify')
+    .transform('envify')
     .bundle()
     .pipe(source('bundle.min.js'))
     .pipe(buffer())
@@ -170,7 +171,7 @@ gulp.task('serve', ['build:app'], (done) => {
   let PORT = process.env.PORT || 3000
   let server = express()
 
-  server.use(BASE, express.static(__dirname + BASE, { etag: false }))
+  server.use(BASE, express.static(join(__dirname, BASE), { etag: false }))
 
   server.listen(PORT, () => {
     plugins.util.log(`Express server listening at http://localhost:${PORT}${BASE}`)

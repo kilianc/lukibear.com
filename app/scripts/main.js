@@ -6,16 +6,17 @@
 
 'use strict'
 
-/* global Bugsnag */
+// this needs to be set ASAP before any other code
+// to allow proper error reporting
 Bugsnag.releaseStage = process.env.NODE_ENV
 Bugsnag.notifyReleaseStages = ['staging', 'production']
 
-var setupContactDialogs = require('./dialogs')
-var setupForms = require('./forms')
-var setupNav = require('./nav')
-var setupSlaask = require('./slaask')
-var setupTracking = require('./tracking').setupTracking
-var setupAnchors = require('./anchors')
+const setupContactDialogs = require('./dialogs')
+const setupForms = require('./forms')
+const setupNav = require('./nav')
+const setupSlaask = require('./slaask')
+const setupTracking = require('./tracking').setupTracking
+const setupAnchors = require('./anchors')
 
 console.info('Hey you curious fellow!')
 

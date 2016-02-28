@@ -6,8 +6,8 @@
 
 'use strict'
 
-var $ = require('jquery')
-var mixpanel = require('mixpanel-browser')
+const $ = require('jquery')
+const mixpanel = require('mixpanel-browser')
 
 function setupTracking () {
   // init mixpanel
@@ -15,9 +15,9 @@ function setupTracking () {
     mixpanel.init('19c6e5ecadfd02735d072f11d7bc5cdb')
     mixpanel.track('page-view')
   } else {
-    mixpanel.track = function () {}
-    mixpanel.identify = function () {}
-    mixpanel.people = { set: function () {} }
+    mixpanel.track = () => {}
+    mixpanel.identify = () => {}
+    mixpanel.people = { set: () => {} }
   }
 
   // track clicks
@@ -36,14 +36,14 @@ function setupTracking () {
 
   // init google analytics
   if (process.env.NODE_ENV === 'production') {
-    var ga = window.ga = function () {
+    let ga = window.ga = () => {
       ga.q = [arguments]
     }
     ga.l = 1 * new Date()
     ga('create', 'UA-64479821-1', 'auto')
     ga('send', 'pageview')
   } else {
-    window.ga = function () {}
+    window.ga = () => {}
   }
 }
 

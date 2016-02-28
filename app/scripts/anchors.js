@@ -6,12 +6,12 @@
 
 'use strict'
 
-var $ = require('jquery')
+const $ = require('jquery')
 
 function setupAnchors () {
-  $('section').each(function () {
-    var $this = $(this)
-    $('<a id="' + $this.attr('class') + '" class="anchor"></a>').insertBefore($this)
+  $('section').each((i, section) => {
+    let $section = $(section)
+    $(`<a id="${$section.attr('class')}" class="anchor"></a>`).insertBefore($section)
   })
 }
 

@@ -11,6 +11,11 @@
     "node": "5.5.0"
   },
   "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "babel-plugin-transform-runtime": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "del": "^2.0.2",
     "email-validator": "^1.0.4",
@@ -37,6 +42,7 @@
     "phone": "^1.0.5",
     "postcss-assets": "^4.0.1",
     "run-sequence": "^1.1.1",
+    "standard": "^6.0.7",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
@@ -47,5 +53,16 @@
     "deploy-prod": "git push -f dokku@git.lukibear.com:lukibear.com HEAD:master"
   },
   "author": "Kilian Ciuffolo <kilian@lukibear.com>",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "standard": {
+    "parser": "babel-eslint",
+    "global": [
+      "Bugsnag",
+      "_slaask"
+    ],
+    "ignore": [
+      "dist/**",
+      "release/**"
+    ]
+  }
 }
