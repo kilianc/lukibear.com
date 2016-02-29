@@ -36,17 +36,17 @@ function setupTracking () {
 
   // init google analytics
   if (process.env.NODE_ENV === 'production') {
-    let ga = window.ga = () => {
-      ga.q = [arguments]
+    window.GoogleAnalyticsObject = 'ga'
+    window.ga = function () {
+      window.ga.q = window.ga.q || []
+      window.ga.q.push(arguments)
     }
-    ga.l = 1 * new Date()
-    ga('create', 'UA-64479821-1', 'auto')
-    ga('send', 'pageview')
-  } else {
-    window.ga = () => {}
+    window.ga.l = Date.now()
+    window.ga('create', 'UA-64479821-1', 'auto')
+    window.ga('send', 'pageview')
   }
 }
 
 exports.mixpanel = mixpanel
 exports.setupTracking = setupTracking
-exports.ga = window.ga
+exports.ga = (...args) => window.ga(...args)
