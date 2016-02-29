@@ -5,7 +5,7 @@ ARG NODE_ENV=development
 
 WORKDIR /website
 COPY package.json ./
-RUN npm install && npm cache clean
+RUN npm install --only="dev" && npm cache clean
 
 COPY . ./
 RUN $(npm bin)/gulp
