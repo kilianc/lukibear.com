@@ -91,7 +91,7 @@ gulp.task('js', () => {
 })
 
 gulp.task('revisions', function () {
-  var ignore = ['.html', /fonts/]
+  var ignore = ['.html', /fonts/, /og-image/]
   var revAll = new plugins.revAll({ // eslint-disable-line
     dontRenameFile: ignore,
     dontUpdateReference: ignore
