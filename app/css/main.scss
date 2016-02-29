@@ -162,12 +162,17 @@ header {
 .portfolio {
   $height: 370px;
 
-  padding-top: $margin-md;
+  padding-top: $margin-xl;
 
-  .inner-content {
+  .inner-content.portfolio-item {
     @include media(max-width $breakpoint-portfolio) {
       padding: 0;
     }
+  }
+
+  h4 {
+    margin-bottom: $margin-xl;
+    max-width: 700px;
   }
 
   .portfolio-item {
