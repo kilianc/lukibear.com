@@ -344,11 +344,12 @@ header {
   .portfolio-item-cancare {
     background-color: $color-olive-drab;
     background-image: url('images/img-cancare.png');
+    background-size: 90% !important;
     @include span-columns-fixed-gutter(6, $margin-md, $breakpoint-portfolio);
 
     @include media(max-width $breakpoint-portfolio) {
-      background-size: 130% !important;
-      background-position: 10px 30px !important;
+      background-size: 103% !important;
+      background-position: 24px 30px !important;
     }
   }
 
