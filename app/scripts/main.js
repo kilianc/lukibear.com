@@ -17,10 +17,10 @@ const analytics = require('./segmentio')
 console.info('Hey you curious fellow!')
 
 // init segmentio
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
   analytics.init('FEwiQRqpIG8YKwjQgHGQ1S7KJUNfRCH8')
   analytics.page()
-}
+// }
 
 setupNav()
 setupAnchors()
