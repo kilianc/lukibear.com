@@ -85,15 +85,15 @@ function onFormSubmit (e) {
     contact = phone[0]
   }
 
-  mixpanel.identify(contact)
-  mixpanel.track('contact', { type: $dialog.attr('id').replace('contact-', '') })
-  mixpanel.people.set({
+  mixpanel.identify(contact, {
     $name: name,
     $phone: phone,
     $email: email,
     info: info,
     budget: budget
   })
+
+  mixpanel.track('contact', { type: $dialog.attr('id').replace('contact-', '') })
 
   $form.css('display', 'none')
   $dialog.find('.thanks').css('display', 'block')
