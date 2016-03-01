@@ -9,7 +9,7 @@
 const $ = require('jquery')
 const isValidEmail = require('email-validator').validate
 const phoneFormatter = require('phone')
-const mixpanel = require('./tracking').mixpanel
+const analytics = require('./segmentio')
 
 function isValidPhone (s) {
   return !!phoneFormatter(s).length
@@ -85,7 +85,7 @@ function onFormSubmit (e) {
     contact = phone[0]
   }
 
-  mixpanel.track('contact', {
+  analytics.track('contact', {
     type: $dialog.attr('id').replace('contact-', ''),
     name: name,
     phone: phone,
@@ -94,7 +94,7 @@ function onFormSubmit (e) {
     budget: budget
   })
 
-  mixpanel.people.set({
+  analytics.identify({
     $name: name,
     $phone: phone,
     $email: email
