@@ -14,7 +14,6 @@ Bugsnag.notifyReleaseStages = ['staging', 'production']
 const setupContactDialogs = require('./dialogs')
 const setupForms = require('./forms')
 const setupNav = require('./nav')
-const setupSlaask = require('./slaask')
 const setupTracking = require('./tracking').setupTracking
 const setupAnchors = require('./anchors')
 
@@ -24,5 +23,4 @@ setupNav()
 setupAnchors()
 setupContactDialogs()
 setupForms()
-setupSlaask()
 setupTracking()
