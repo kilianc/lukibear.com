@@ -17,6 +17,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
+    "bugsnag-js": "^2.5.0",
     "connect-livereload": "^0.5.4",
     "del": "^2.0.2",
     "email-validator": "^1.0.4",
@@ -37,7 +38,6 @@
     "gulp-util": "^3.0.6",
     "imagemin-pngquant": "^4.2.0",
     "jquery": "^2.2.0",
-    "mixpanel-browser": "^2.7.2",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
     "phone": "^1.0.5",
@@ -57,10 +57,6 @@
   "license": "UNLICENSED",
   "standard": {
     "parser": "babel-eslint",
-    "global": [
-      "Bugsnag",
-      "_slaask"
-    ],
     "ignore": [
       "dist/**",
       "release/**"
