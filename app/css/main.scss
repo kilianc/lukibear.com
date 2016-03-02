@@ -177,7 +177,7 @@ header {
 
   padding-top: $margin-xl;
 
-  .inner-content.portfolio-item {
+  .inner-content.portfolio-items {
     @include media(max-width $breakpoint-portfolio) {
       padding: 0;
     }
@@ -197,7 +197,7 @@ header {
 
     @include media(max-width $breakpoint-portfolio) {
       height: auto;
-      padding: 30px;
+      padding: 20px 20px;
     }
 
     &.portfolio-item-small {
@@ -271,7 +271,7 @@ header {
 
       @include media(max-width $breakpoint-portfolio) {
         position: static;
-        margin: 30px -30px -30px;
+        margin: 30px -20px -20px;
         width: auto;
         height: $height;
         background-position: 0 0;
@@ -429,7 +429,7 @@ header {
     @include image('images/img-graph.svg');
     height: 387px;
     width: 100%;
-    background-size: contain;
+    background-size: contain !important;
 
     @include media(max-width $breakpoint-sm) {
       @include image('images/img-graph-mobile.svg');

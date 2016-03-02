@@ -12,7 +12,7 @@ footer .inner-content {
   padding: 0 $margin-md;
 
   @include media(max-width $breakpoint-sm) {
-    padding: 30px;
+    padding: 20px;
   }
 }
 
