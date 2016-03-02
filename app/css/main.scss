@@ -138,19 +138,32 @@ header {
     margin-top: $margin-md;
   }
 
-  @include media(max-width $breakpoint-sm) {
-    .scroll {
-      @include image('images/icn-scroll.svg');
-      margin: $margin-lg auto 0;
-    }
+  .mobile {
+    display: none;
   }
 
   @include media(max-width $breakpoint-sm) {
     height: 100%;
+    min-height: 550px;
+    position: relative;
+
+    .mobile {
+      display: block;
+    }
+
+    .desktop {
+      display: none;
+    }
+
+    .scroll {
+      @include image('images/icn-scroll.svg');
+      margin: $margin-lg auto 0;
+    }
 
     .inner-content {
       @include position-center();
       width: 100%;
+      padding: 0 30px;
     }
 
     .logo {

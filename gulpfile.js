@@ -161,6 +161,7 @@ gulp.task('serve', ['build:app'], (done) => {
 
   gulp.watch([
     'app/**/*',
+    '!app/**/*.map',
     '!app/css/*',
     '!app/scripts/*'
   ]).on('change', (file) => {
@@ -171,6 +172,7 @@ gulp.task('serve', ['build:app'], (done) => {
   let PORT = process.env.PORT || 3000
   let server = express()
 
+  server.use(require('connect-livereload')())
   server.use(BASE, express.static(join(__dirname, BASE), { etag: false }))
 
   server.listen(PORT, () => {

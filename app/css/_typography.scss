@@ -37,8 +37,8 @@ h1 {
   }
 
   @include media(max-width $breakpoint-sm) {
-    font-size: 42px;
-    line-height: 50px;
+    font-size: 35px;
+    line-height: 40px;
   }
 }
 

@@ -20,6 +20,10 @@ footer .inner-content {
   br {
     display: none;
   }
+
+  .mobile br {
+    display: inline;
+  }
 }
 
 .anchor {
