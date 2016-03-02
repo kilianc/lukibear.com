@@ -415,6 +415,10 @@ header {
 
     @include media(max-width $breakpoint-portfolio) {
       height: auto !important;
+
+      .portfolio-item-description {
+        position: static !important;
+      }
     }
 
     .portfolio-item-logo {
@@ -423,7 +427,6 @@ header {
 
     .portfolio-item-description {
       opacity: 1 !important;
-      position: static !important;
     }
   }
 
