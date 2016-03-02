@@ -207,6 +207,13 @@ header {
       .portfolio-item-description {
         opacity: 0;
         right: 40px;
+
+        @include media(max-width $breakpoint-portfolio) {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          right: 20px;
+        }
       }
 
       p {
@@ -290,7 +297,16 @@ header {
       transition: all 50ms;
     }
 
-    &.hover:hover {
+    &.hover {
+      @include media(max-width $breakpoint-sm) {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+      }
+    }
+
+    &.hover:hover,
+    &.hover:active,
+    &.hover:focus {
       .portfolio-item-logo,
       .portfolio-item-description {
         opacity: 1;
@@ -407,6 +423,7 @@ header {
 
     .portfolio-item-description {
       opacity: 1 !important;
+      position: static !important;
     }
   }
 
