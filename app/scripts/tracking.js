@@ -7,46 +7,16 @@
 'use strict'
 
 const $ = require('jquery')
-const mixpanel = require('mixpanel-browser')
+const analytics = require('./segmentio')
 
-function setupTracking () {
-  // init mixpanel
-  if (process.env.NODE_ENV === 'production') {
-    mixpanel.init('19c6e5ecadfd02735d072f11d7bc5cdb')
-    mixpanel.track('page-view')
-  } else {
-    mixpanel.track = () => {}
-    mixpanel.identify = () => {}
-    mixpanel.people = { set: () => {} }
-  }
-
+module.exports = function setupTracking () {
   // track clicks
-  $('[data-track-id]').on('click', function () {
-    mixpanel.track('click', {
-      link: $(this).attr('data-track-id'),
-      label: $(this).val() || $(this).text()
+  $('[data-track-id]').on('click', (e) => {
+    let $link = $(e.currentTarget)
+
+    analytics.track('click', {
+      link: $link.attr('data-track-id'),
+      label: $link.val() || $link.text()
     })
   })
-
-  // inspectlet
-  window.__insp = window.__insp || []
-  if (process.env.NODE_ENV === 'production') {
-    window.__insp.push(['wid', 2147080968])
-  }
-
-  // init google analytics
-  if (process.env.NODE_ENV === 'production') {
-    window.GoogleAnalyticsObject = 'ga'
-    window.ga = function () {
-      window.ga.q = window.ga.q || []
-      window.ga.q.push(arguments)
-    }
-    window.ga.l = Date.now()
-    window.ga('create', 'UA-64479821-1', 'auto')
-    window.ga('send', 'pageview')
-  }
 }
-
-exports.mixpanel = mixpanel
-exports.setupTracking = setupTracking
-exports.ga = (...args) => window.ga(...args)
