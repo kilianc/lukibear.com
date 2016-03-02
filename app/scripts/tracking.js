@@ -24,7 +24,7 @@ function setupTracking () {
   $('[data-track-id]').on('click', function () {
     mixpanel.track('click', {
       link: $(this).attr('data-track-id'),
-      label: $(this).val()
+      label: $(this).val() || $(this).text()
     })
   })
 
