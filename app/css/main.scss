@@ -359,13 +359,13 @@ header {
     }
   }
 
-  .portfolio-item-build {
+  .portfolio-item-bluebank {
     background-color: $color-seashell;
-    background-image: url('images/img-build.png');
+    background-image: url('images/img-bluebank.png');
     @include span-columns-fixed-gutter(6, $margin-md, $breakpoint-portfolio);
 
     @include media(max-width $breakpoint-portfolio) {
-      background-size: 200% !important;
+      background-size: 150% !important;
       background-position: 20px 30px !important;
     }
   }
