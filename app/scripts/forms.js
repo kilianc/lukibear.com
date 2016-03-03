@@ -75,6 +75,7 @@ function onFormSubmit (e) {
   let $form = $(this)
   let $dialog = $form.closest('dialog')
   let contact = $('input[name="contact"]').val()
+  let type = $dialog.attr('id').replace('contact-', '')
   let name = $('input[name="name"]').val()
   let budget = $('input[name="budget"]').val()
   let info = $('textarea[name="info"]').val()
@@ -86,12 +87,12 @@ function onFormSubmit (e) {
   }
 
   analytics.track('contact', {
-    type: $dialog.attr('id').replace('contact-', ''),
+    type: type,
     name: name,
     phone: phone,
     email: email,
     info: info,
-    budget: budget
+    budget: (type === 'full') ? budget : ''
   })
 
   analytics.identify({
