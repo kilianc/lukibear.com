@@ -16,7 +16,7 @@ module.exports = function setupTracking () {
 
     analytics.track('click', {
       link: $link.attr('data-track-id'),
-      label: $link.val() || $link.text()
+      label: ($link.val() || $link.text()).toLowerCase()
     })
   })
 }
