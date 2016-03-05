@@ -14,6 +14,7 @@ const del = require('del')
 const neat = require('node-neat').includePaths
 const pngquant = require('imagemin-pngquant')
 const browserify = require('browserify')
+const watchify = require('watchify')
 const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
 const express = require('express')
@@ -76,13 +77,22 @@ gulp.task('css', () => {
 })
 
 gulp.task('js', () => {
-  return browserify({
-    entries: 'app/scripts/main.js',
-    debug: true
-  })
+  if (!browserify.bundler) {
+    browserify.bundler = browserify({
+      cache: {},
+      debug: true,
+      entries: 'app/scripts/main.js',
+      packageCache: {}
+    })
+    .plugin(watchify, {
+      ignoreWatch: '**'
+    })
     .transform('babelify')
     .transform('browserify-versionify')
     .transform('envify')
+  }
+
+  return browserify.bundler
     .bundle()
     .pipe(source('bundle.min.js'))
     .pipe(buffer())
