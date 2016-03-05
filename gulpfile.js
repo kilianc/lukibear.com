@@ -81,6 +81,7 @@ gulp.task('js', () => {
     debug: true
   })
     .transform('babelify')
+    .transform('browserify-versionify')
     .transform('envify')
     .bundle()
     .pipe(source('bundle.min.js'))

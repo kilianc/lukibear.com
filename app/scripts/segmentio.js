@@ -13,6 +13,34 @@ window.analytics = []
 // wrapper returned by requiring this module
 const segment = module.exports = {}
 
+;[
+  'alias',
+  'group',
+  'identify',
+  'off',
+  'on',
+  'once',
+  'page',
+  'pageview',
+  'ready',
+  'reset',
+  'track',
+  'trackClick',
+  'trackForm',
+  'trackLink',
+  'trackSubmit'
+].forEach((method) => {
+  segment[method] = (...event) => {
+    return window.analytics[method](...event)
+  }
+
+  window.analytics[method] = (...event) => {
+    event.unshift(method)
+    window.analytics.push(event)
+    return window.analytics
+  }
+})
+
 segment.init = (apiKey) => {
   // only load script once
   if (segment.initiated) {
@@ -21,34 +49,6 @@ segment.init = (apiKey) => {
 
   // mark as initiated
   segment.initiated = true
-
-  ;[
-    'alias',
-    'group',
-    'identify',
-    'off',
-    'on',
-    'once',
-    'page',
-    'pageview',
-    'ready',
-    'reset',
-    'track',
-    'trackClick',
-    'trackForm',
-    'trackLink',
-    'trackSubmit'
-  ].forEach((method) => {
-    segment[method] = (...event) => {
-      return window.analytics[method](...event)
-    }
-
-    window.analytics[method] = (...event) => {
-      event.unshift(method)
-      window.analytics.push(event)
-      return window.analytics
-    }
-  })
 
   // load analytics.js
   let script = document.createElement('script')

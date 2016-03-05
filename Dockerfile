@@ -1,4 +1,4 @@
-FROM kilianciuffolo/http-server:5.6.0
+FROM kilianciuffolo/http-server:5.7.1
 MAINTAINER kilian@lukibear.com
 
 ARG NODE_ENV=development
