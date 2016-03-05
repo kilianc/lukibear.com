@@ -2,7 +2,9 @@ box: kilianciuffolo/wercker:5.7.1
 
 build:
   steps:
-    - npm-install
+    - script:
+        name: npm i
+        code: npm install --only="dev"
     - script:
         name: gulp
         code: $(npm bin)/gulp
